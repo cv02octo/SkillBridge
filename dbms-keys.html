@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DBMS Keys | SkillBridge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 24px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .content-card h2 {
+            color: #173b8f;
+            margin-bottom: 15px;
+        }
+
+        .content-card p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .key-card {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+        }
+
+        .key-card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .key-card p {
+            margin-bottom: 8px;
+        }
+
+        .example {
+            background: #eef4ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .example strong {
+            color: #173b8f;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d1d5db;
+            padding: 13px;
+            text-align: left;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .revision ul {
+            margin-left: 25px;
+            color: #4b5563;
+            line-height: 1.9;
+        }
+
+        .mcq {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 18px;
+        }
+
+        .mcq h3 {
+            color: #173b8f;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .option {
+            display: block;
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eef4ff;
+            border-color: #2563eb;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .check-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .check-btn:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .complete-section {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin: 30px 0 50px;
+        }
+
+        .complete-section h2 {
+            color: #173b8f;
+            margin-bottom: 10px;
+        }
+
+        .complete-section p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .complete-btn {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background: #15803d;
+        }
+
+        .complete-btn.completed {
+            background: #6b7280;
+            cursor: default;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            table {
+                min-width: 650px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        SkillBridge
+    </div>
+
+    <div>
+
+        <a href="index.html">Home</a>
+        <a href="subject.html">Subjects</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>🔑 DBMS Keys</h1>
+
+    <p>
+        Learn how keys identify and connect records in a database
+    </p>
+
+</section>
+
+
+<!-- BACK -->
+
+<a href="dbms.html" class="back-btn">
+    ← Back to DBMS
+</a>
+
+
+<!-- INTRODUCTION -->
+
+<div class="content-card">
+
+    <h2>📘 What is a Key?</h2>
+
+    <p>
+        A key is an attribute or a combination of attributes
+        used to identify records in a database.
+    </p>
+
+    <p>
+        Keys help maintain uniqueness and establish relationships
+        between different tables.
+    </p>
+
+    <div class="example">
+
+        <strong>💡 Simple Example:</strong>
+
+        <p>
+            In a Student table, Roll Number can uniquely identify
+            each student. Therefore, Roll Number can be used as a key.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- PRIMARY KEY -->
+
+<div class="content-card">
+
+    <div class="key-card">
+
+        <h3>1️⃣ Primary Key</h3>
+
+        <p>
+            A Primary Key uniquely identifies every record
+            in a table.
+        </p>
+
+        <p>
+            It cannot contain duplicate or NULL values.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                Student(Roll_No, Name, Course)
+            </p>
+
+            <p>
+                Roll_No can be the Primary Key because every
+                student has a unique Roll Number.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOREIGN KEY -->
+
+    <div class="key-card">
+
+        <h3>2️⃣ Foreign Key</h3>
+
+        <p>
+            A Foreign Key is used to connect two tables.
+        </p>
+
+        <p>
+            It usually refers to the Primary Key of another table.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                Student table has Course_ID as a Foreign Key.
+                It can refer to Course_ID in the Course table.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CANDIDATE KEY -->
+
+    <div class="key-card">
+
+        <h3>3️⃣ Candidate Key</h3>
+
+        <p>
+            A Candidate Key is an attribute or combination of
+            attributes that can uniquely identify a record.
+        </p>
+
+        <p>
+            One of the candidate keys is selected as the
+            Primary Key.
+        </p>
+
+    </div>
+
+
+    <!-- SUPER KEY -->
+
+    <div class="key-card">
+
+        <h3>4️⃣ Super Key</h3>
+
+        <p>
+            A Super Key is any set of attributes that can
+            uniquely identify a record.
+        </p>
+
+        <p>
+            A Super Key may contain extra attributes.
+        </p>
+
+    </div>
+
+
+    <!-- COMPOSITE KEY -->
+
+    <div class="key-card">
+
+        <h3>5️⃣ Composite Key</h3>
+
+        <p>
+            A Composite Key is made using two or more attributes
+            together to uniquely identify a record.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                Student_ID + Course_ID can together uniquely
+                identify a student's course enrollment.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- COMPARISON TABLE -->
+
+<div class="content-card">
+
+    <h2>📊 Key Comparison</h2>
+
+    <div class="table-container">
+
+        <table>
+
+            <tr>
+
+                <th>Key</th>
+                <th>Main Purpose</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Primary Key</td>
+                <td>Uniquely identifies each record</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Foreign Key</td>
+                <td>Connects two tables</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Candidate Key</td>
+                <td>Possible choice for Primary Key</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Super Key</td>
+                <td>Uniquely identifies a record</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Composite Key</td>
+                <td>Uses multiple attributes together</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- REVISION -->
+
+<div class="content-card revision">
+
+    <h2>📝 Quick Revision</h2>
+
+    <ul>
+
+        <li>Primary Key uniquely identifies each record.</li>
+
+        <li>Primary Key cannot contain duplicate values.</li>
+
+        <li>Primary Key cannot contain NULL values.</li>
+
+        <li>Foreign Key connects two tables.</li>
+
+        <li>Candidate Keys are possible choices for Primary Key.</li>
+
+        <li>Super Key can contain extra attributes.</li>
+
+        <li>Composite Key contains two or more attributes.</li>
+
+    </ul>
+
+</div>
+
+
+<!-- MCQs -->
+
+<div class="content-card">
+
+    <h2>❓ Quick MCQs</h2>
+
+    <p>
+        Test your understanding of DBMS Keys.
+    </p>
+
+
+    <!-- Q1 -->
+
+    <div class="mcq">
+
+        <h3>
+            1. Which key uniquely identifies each record in a table?
+        </h3>
+
+        <label class="option">
+
+            <input type="radio" name="q1" value="A">
+
+            A. Foreign Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q1" value="B">
+
+            B. Primary Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q1" value="C">
+
+            C. Composite Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q1" value="D">
+
+            D. Foreign Attribute
+
+        </label>
+
+    </div>
+
+
+    <!-- Q2 -->
+
+    <div class="mcq">
+
+        <h3>
+            2. Which key is used to establish a relationship between two tables?
+        </h3>
+
+        <label class="option">
+
+            <input type="radio" name="q2" value="A">
+
+            A. Primary Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q2" value="B">
+
+            B. Candidate Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q2" value="C">
+
+            C. Foreign Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q2" value="D">
+
+            D. Super Key
+
+        </label>
+
+    </div>
+
+
+    <!-- Q3 -->
+
+    <div class="mcq">
+
+        <h3>
+            3. Which key can be selected as the Primary Key?
+        </h3>
+
+        <label class="option">
+
+            <input type="radio" name="q3" value="A">
+
+            A. Candidate Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q3" value="B">
+
+            B. Foreign Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q3" value="C">
+
+            C. Composite Key only
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q3" value="D">
+
+            D. None
+
+        </label>
+
+    </div>
+
+
+    <!-- Q4 -->
+
+    <div class="mcq">
+
+        <h3>
+            4. Which key consists of two or more attributes?
+        </h3>
+
+        <label class="option">
+
+            <input type="radio" name="q4" value="A">
+
+            A. Primary Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q4" value="B">
+
+            B. Foreign Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q4" value="C">
+
+            C. Composite Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q4" value="D">
+
+            D. Candidate Key
+
+        </label>
+
+    </div>
+
+
+    <!-- Q5 -->
+
+    <div class="mcq">
+
+        <h3>
+            5. Which key can contain extra attributes while still uniquely identifying a record?
+        </h3>
+
+        <label class="option">
+
+            <input type="radio" name="q5" value="A">
+
+            A. Super Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q5" value="B">
+
+            B. Foreign Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q5" value="C">
+
+            C. Primary Key
+
+        </label>
+
+        <label class="option">
+
+            <input type="radio" name="q5" value="D">
+
+            D. None
+
+        </label>
+
+    </div>
+
+
+    <button class="check-btn" onclick="checkAnswers()">
+
+        Check Answers
+
+    </button>
+
+
+    <div id="result"></div>
+
+</div>
+
+
+<!-- COMPLETE -->
+
+<div class="complete-section">
+
+    <h2>🎯 Complete This Topic</h2>
+
+    <p>
+        Finished studying DBMS Keys?
+        Mark this topic as completed.
+    </p>
+
+    <button
+        id="completeBtn"
+        class="complete-btn"
+        onclick="markCompleted()">
+
+        Mark as Completed
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+    © 2026 SkillBridge |
+    Learn. Improve. Get Ready.
+
+</footer>
+
+
+<script>
+
+
+function checkAnswers() {
+
+    const answers = {
+
+        q1: "B",
+        q2: "C",
+        q3: "A",
+        q4: "C",
+        q5: "A"
+
+    };
+
+
+    let score = 0;
+
+    let attempted = 0;
+
+
+    for (let question in answers) {
+
+        const selected =
+            document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+
+        if (selected) {
+
+            attempted++;
+
+
+            if (selected.value === answers[question]) {
+
+                score++;
+
+            }
+
+        }
+
+    }
+
+
+    const result =
+        document.getElementById("result");
+
+
+    result.style.display = "block";
+
+
+    if (attempted < 5) {
+
+        result.style.background = "#fff7ed";
+
+        result.style.color = "#c2410c";
+
+        result.innerHTML =
+            "⚠️ Please answer all 5 questions first.";
+
+        return;
+
+    }
+
+
+    if (score >= 4) {
+
+        result.style.background = "#ecfdf5";
+
+        result.style.color = "#047857";
+
+        result.innerHTML =
+            "🎉 Excellent! You scored " +
+            score +
+            "/5.";
+
+    }
+
+    else if (score >= 3) {
+
+        result.style.background = "#eff6ff";
+
+        result.style.color = "#1d4ed8";
+
+        result.innerHTML =
+            "👍 Good job! You scored " +
+            score +
+            "/5.";
+
+    }
+
+    else {
+
+        result.style.background = "#fff1f2";
+
+        result.style.color = "#be123c";
+
+        result.innerHTML =
+            "📚 Keep practicing! You scored " +
+            score +
+            "/5.";
+
+    }
+
+}
+
+
+/* MARK COMPLETED */
+
+function markCompleted() {
+
+    localStorage.setItem(
+        "dbms_keys",
+        "completed"
+    );
+
+
+    const button =
+        document.getElementById("completeBtn");
+
+
+    button.innerHTML =
+        "✓ Topic Completed";
+
+
+    button.classList.add("completed");
+
+
+    button.disabled = true;
+
+}
+
+
+/* LOAD STATUS */
+
+function loadStatus() {
+
+    if (
+        localStorage.getItem("dbms_keys")
+        === "completed"
+    ) {
+
+        const button =
+            document.getElementById("completeBtn");
+
+
+        button.innerHTML =
+            "✓ Topic Completed";
+
+
+        button.classList.add("completed");
+
+
+        button.disabled = true;
+
+    }
+
+}
+
+
+loadStatus();
+
+</script>
+
+
+</body>
+
+</html>

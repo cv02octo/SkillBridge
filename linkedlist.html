@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List - SkillBridge</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero small {
+            color: #1e3a8a;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #1e3a8a;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #555;
+            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .example {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .example h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        .nodes {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .node {
+            background: #1e3a8a;
+            color: white;
+            padding: 18px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 25px;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+
+        .points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .point {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #1e3a8a;
+        }
+
+        .point h3 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .quiz-question {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .quiz-question h3 {
+            margin-bottom: 15px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: white;
+            color: #222;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            border-color: #1e3a8a;
+        }
+
+        .answer-message {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        .complete-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .complete-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background: #162d6b;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #047857;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .points {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>SkillBridge</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dsa.html">DSA</a>
+            <a href="roadmap.html">Roadmap</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <small>DSA • LINKED LIST</small>
+
+        <h1>Linked List</h1>
+
+        <p>
+            Learn nodes, traversal, insertion, deletion and
+            important Linked List concepts step by step.
+        </p>
+    </section>
+
+    <div class="container">
+
+        <!-- WHAT IS LINKED LIST -->
+
+        <div class="card">
+
+            <h2>What is a Linked List?</h2>
+
+            <p>
+                A Linked List is a linear data structure where elements
+                are stored in separate objects called <b>nodes</b>.
+            </p>
+
+            <p style="margin-top: 15px;">
+                Each node contains two main things:
+                <b>data</b> and a <b>reference to the next node</b>.
+            </p>
+
+            <div class="nodes">
+
+                <div class="node">
+                    Data: 10
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+                <div class="node">
+                    Data: 20
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+                <div class="node">
+                    Data: 30
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+                <div class="node">
+                    NULL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NODE -->
+
+        <div class="card">
+
+            <h2>What is a Node?</h2>
+
+            <p>
+                A node is the basic building block of a Linked List.
+                It stores data and the address/reference of the next node.
+            </p>
+
+            <div class="example">
+
+                <h3>Node Structure</h3>
+
+                <pre>
+class Node {
+
+    int data;
+    Node next;
+
+}</pre>
+
+            </div>
+
+        </div>
+
+
+        <!-- JAVA IMPLEMENTATION -->
+
+        <div class="card">
+
+            <h2>Linked List in Java</h2>
+
+            <p>
+                We can create our own Node class and connect nodes
+                using the <b>next</b> reference.
+            </p>
+
+            <div class="example">
+
+                <pre>
+class Node {
+
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+Node first = new Node(10);
+Node second = new Node(20);
+
+first.next = second;</pre>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRAVERSAL -->
+
+        <div class="card">
+
+            <h2>Linked List Traversal</h2>
+
+            <p>
+                Traversal means visiting every node of the Linked List
+                one by one.
+            </p>
+
+            <div class="example">
+
+                <pre>
+Node temp = first;
+
+while(temp != null) {
+
+    System.out.println(temp.data);
+
+    temp = temp.next;
+}</pre>
+
+                <p style="margin-top: 15px;">
+                    <b>Output:</b><br>
+                    10<br>
+                    20
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- INSERTION -->
+
+        <div class="card">
+
+            <h2>Insertion</h2>
+
+            <p>
+                Insertion means adding a new node to the Linked List.
+                A node can be inserted at the beginning, middle or end.
+            </p>
+
+            <div class="example">
+
+                <h3>Example</h3>
+
+                <p>
+                    Before:
+                    <b>10 → 20 → 30</b>
+                </p>
+
+                <p style="margin-top: 10px;">
+                    Insert 15:
+                    <b>10 → 15 → 20 → 30</b>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DELETION -->
+
+        <div class="card">
+
+            <h2>Deletion</h2>
+
+            <p>
+                Deletion means removing a node from the Linked List.
+            </p>
+
+            <div class="example">
+
+                <h3>Example</h3>
+
+                <p>
+                    Before:
+                    <b>10 → 20 → 30</b>
+                </p>
+
+                <p style="margin-top: 10px;">
+                    Delete 20:
+                    <b>10 → 30</b>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMPORTANT POINTS -->
+
+        <div class="card">
+
+            <h2>Important Points</h2>
+
+            <div class="points">
+
+                <div class="point">
+
+                    <h3>1. Node</h3>
+
+                    <p>
+                        Stores data and reference to the next node.
+                    </p>
+
+                </div>
+
+                <div class="point">
+
+                    <h3>2. Head</h3>
+
+                    <p>
+                        The first node of a Linked List is called Head.
+                    </p>
+
+                </div>
+
+                <div class="point">
+
+                    <h3>3. NULL</h3>
+
+                    <p>
+                        The last node points to NULL.
+                    </p>
+
+                </div>
+
+                <div class="point">
+
+                    <h3>4. Dynamic Size</h3>
+
+                    <p>
+                        Linked Lists can grow and shrink dynamically.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRACTICE -->
+
+        <div class="card">
+
+            <h2>Practice Questions</h2>
+
+            <div class="quiz-question">
+
+                <h3>
+                    Q1. What does a Linked List node contain?
+                </h3>
+
+                <button class="option" onclick="checkAnswer(false)">
+                    A. Only data
+                </button>
+
+                <button class="option" onclick="checkAnswer(true)">
+                    B. Data and reference
+                </button>
+
+                <button class="option" onclick="checkAnswer(false)">
+                    C. Only reference
+                </button>
+
+                <button class="option" onclick="checkAnswer(false)">
+                    D. Only index
+                </button>
+
+                <p id="answer-message" class="answer-message"></p>
+
+            </div>
+
+
+            <div class="quiz-question">
+
+                <h3>
+                    Q2. Which node is the first node of a Linked List?
+                </h3>
+
+                <button class="option" onclick="checkSecond(true)">
+                    A. Head
+                </button>
+
+                <button class="option" onclick="checkSecond(false)">
+                    B. Tail
+                </button>
+
+                <button class="option" onclick="checkSecond(false)">
+                    C. Middle
+                </button>
+
+                <button class="option" onclick="checkSecond(false)">
+                    D. Root
+                </button>
+
+                <p id="second-message" class="answer-message"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPLETE -->
+
+        <div class="complete-section">
+
+            <button class="complete-btn" onclick="completeTopic()">
+                ✓ Mark Topic as Completed
+            </button>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function checkAnswer(correct) {
+
+            const message =
+                document.getElementById("answer-message");
+
+            if (correct) {
+
+                message.innerText = "✅ Correct Answer!";
+                message.style.color = "#047857";
+
+            } else {
+
+                message.innerText =
+                    "❌ Wrong Answer. Try again!";
+                message.style.color = "#dc2626";
+
+            }
+        }
+
+
+        function checkSecond(correct) {
+
+            const message =
+                document.getElementById("second-message");
+
+            if (correct) {
+
+                message.innerText = "✅ Correct Answer!";
+                message.style.color = "#047857";
+
+            } else {
+
+                message.innerText =
+                    "❌ Wrong Answer. Try again!";
+                message.style.color = "#dc2626";
+
+            }
+        }
+
+
+        function completeTopic() {
+
+            localStorage.setItem(
+                "linkedlistCompleted",
+                "true"
+            );
+
+            document.getElementById("message").innerText =
+                "🎉 Linked List completed! Your progress has been saved.";
+
+        }
+
+    </script>
+
+</body>
+</html>

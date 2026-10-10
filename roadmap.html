@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Learning Roadmap - SkillBridge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .roadmap-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+        }
+
+        .status {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+        }
+
+        .focus { background: var(--rose-light); color: var(--rose); }
+        .practice { background: var(--amber-light); color: var(--amber); }
+        .strong { background: var(--emerald-light); color: var(--emerald); }
+        .not-assessed { background: var(--bg-main); color: var(--text-muted); }
+
+        .score {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .learning-progress { margin-top: 16px; }
+        .learning-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+        .progress-bar { width: 100%; height: 8px; background: var(--border); border-radius: var(--radius-full); overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: var(--radius-full); }
+
+        .learn-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 800px) {
+            .roadmap-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="subject.html">Assessments</a>
+            <a href="roadmap.html" class="active">Roadmaps</a>
+            <a href="track.html">Progress</a>
+            <a href="internship.html">Internships</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="nav-btn-secondary">Sign In</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="roadmap-header" style="background: white; padding: 50px 20px; text-align: center; border-bottom: 1px solid var(--border);">
+        <p class="small-title"><i class="fa-solid fa-route"></i> PERSONALIZED LEARNING PATH</p>
+        <h1>My Learning Roadmap</h1>
+        <p style="max-width: 650px; margin: 10px auto 0; color: var(--text-muted);">Explore any computer science domain and systematically build your technical skills step by step.</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="roadmap-container" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+
+        <div class="mixed-assessment" style="margin-bottom: 40px;">
+            <div class="mixed-icon">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <div class="mixed-content">
+                <h2 id="roadmap-message">Your Customized Learning Roadmap 🚀</h2>
+                <p>Explore any subject at your own pace. Completing diagnostic assessments will automatically update your priority focus areas.</p>
+            </div>
+        </div>
+
+        <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+            <span class="section-badge">CURRICULUM MODULES</span>
+            <h2>Subject-Wise Learning Paths</h2>
+        </div>
+
+        <div class="roadmap-grid" id="roadmap-grid"></div>
+
+        <div class="quick-action-card" style="margin-top: 50px;">
+            <div class="mixed-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div class="mixed-content">
+                <h2>Want Precision Recommendations?</h2>
+                <p>Take a quick diagnostic test to highlight high-priority topic recommendations.</p>
+            </div>
+            <a href="subject.html" class="assessment-btn">
+                Take Diagnostic <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <div class="nav-logo-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span>SkillBridge</span>
+                </a>
+                <p>Empowering tech learners and computer science students with structured skill assessments, targeted learning paths, and career guidance.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="subject.html">Assessments</a></li>
+                    <li><a href="roadmap.html">Roadmaps</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Skill Domains</h4>
+                <ul>
+                    <li><a href="dsa.html">Data Structures</a></li>
+                    <li><a href="dbms.html">Database Systems</a></li>
+                    <li><a href="web.html">Web Development</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="track.html">Progress Tracker</a></li>
+                    <li><a href="internship.html">Internship Portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const subjects = [
+            { name: "Programming", key: "programmingScore", icon: "💻", link: "programming.html" },
+            { name: "Data Structures & Algorithms", key: "dsaScore", icon: "🧩", link: "dsa.html" },
+            { name: "DBMS", key: "dbmsScore", icon: "🗄️", link: "dbms.html" },
+            { name: "Operating System", key: "osScore", icon: "⚙️", link: "os.html" },
+            { name: "Computer Networks", key: "cnScore", icon: "🌐", link: "cn.html" },
+            { name: "Cyber Security", key: "cyberSecurityScore", icon: "🔐", link: "cybersecurity.html" },
+            { name: "Web Development", key: "webScore", icon: "🖥️", link: "web.html" },
+            { name: "Cloud Computing", key: "cloudScore", icon: "☁️", link: "cloud.html" },
+            { name: "AI / ML", key: "aimlScore", icon: "🤖", link: "aiml.html" },
+            { name: "Computer Organization", key: "coaScore", icon: "🧠", link: "coa.html" }
+        ];
+
+        const grid = document.getElementById("roadmap-grid");
+
+        function getDBMSProgress() {
+            const topics = [
+                "introduction", "file-system", "architecture", "data-models", "database-users",
+                "entity", "relationships", "er-diagram", "keys", "er-relational",
+                "relational-model", "primary-foreign", "constraints", "relational-algebra",
+                "sql-introduction", "ddl", "dml", "dql", "dcl-tcl", "where-order",
+                "aggregate", "joins", "subqueries", "sql-practice",
+                "functional-dependency", "1nf", "2nf", "3nf", "bcnf", "normalization-practice",
+                "transactions", "acid", "concurrency", "serializability", "deadlock",
+                "indexing", "btree", "views", "stored-procedures", "triggers",
+                "mcqs", "sql-problems", "interview", "final-assessment"
+            ];
+            let completed = 0;
+            topics.forEach(function (topic) {
+                if (localStorage.getItem("dbms_" + topic) === "completed") {
+                    completed++;
+                }
+            });
+            return Math.round((completed / topics.length) * 100);
+        }
+
+        subjects.forEach(function (subject) {
+            const savedScore = localStorage.getItem(subject.key);
+            let learningProgress = 0;
+
+            if (subject.name === "DBMS") {
+                learningProgress = getDBMSProgress();
+            }
+
+            let status, statusClass, description, scoreText;
+
+            if (savedScore === null) {
+                status = "Not Assessed";
+                statusClass = "not-assessed";
+                description = "Explore this subject roadmap and start building your fundamental skills.";
+                scoreText = "Assessment status: Not taken yet";
+            } else {
+                const score = parseInt(savedScore, 10);
+                scoreText = `Assessment Score: <strong>${score}%</strong>`;
+                if (score < 50) {
+                    status = "Focus Area";
+                    statusClass = "focus";
+                    description = "We recommend starting from core fundamentals to strengthen your foundation.";
+                } else if (score < 80) {
+                    status = "Practice Recommended";
+                    statusClass = "practice";
+                    description = "Good score! Review intermediate modules and solve practice problems.";
+                } else {
+                    status = "Strong Subject";
+                    statusClass = "strong";
+                    description = "Excellent mastery! Move on to advanced concepts and real-world projects.";
+                }
+            }
+
+            const card = document.createElement("div");
+            card.className = "roadmap-card";
+            card.innerHTML = `
+                <div class="card-top">
+                    <div class="icon">${subject.icon}</div>
+                    <span class="status ${statusClass}">${status}</span>
+                </div>
+                <h3>${subject.name}</h3>
+                <div class="score">${scoreText}</div>
+                <p>${description}</p>
+                <div class="learning-progress">
+                    <div class="learning-label">
+                        <span>Learning Progress</span>
+                        <span>${learningProgress}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${learningProgress}%;"></div>
+                    </div>
+                </div>
+                <a href="${subject.link}" class="learn-btn">
+                    Start Learning <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            `;
+            grid.appendChild(card);
+        });
+
+        let anyAssessment = subjects.some(s => localStorage.getItem(s.key) !== null);
+        if (anyAssessment) {
+            document.getElementById("roadmap-message").innerText = "Your Personalized Learning Roadmap 🎯";
+        } else {
+            document.getElementById("roadmap-message").innerText = "Start Learning at Your Own Pace 🚀";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

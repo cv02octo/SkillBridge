@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Development Assessment - SkillBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>SKILLBRIDGE</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assessment.html">Assessment</a>
+        </div>
+    </nav>
+
+    <div class="test-container">
+
+        <div class="test-header">
+
+            <h1>Web Development Assessment</h1>
+
+            <p>
+                Question <span id="question-number">1</span> / 20
+            </p>
+
+        </div>
+
+        <div class="test-card">
+
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <div class="test-buttons">
+                <button id="next-btn">Next →</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const questionBank = [
+
+            {
+                question: "What does HTML stand for?",
+                options: [
+                    "HyperText Markup Language",
+                    "HighText Machine Language",
+                    "HyperText Machine Language",
+                    "Hyperlink Text Markup Language"
+                ],
+                answer: "HyperText Markup Language"
+            },
+
+            {
+                question: "Which tag is used to create a heading in HTML?",
+                options: [
+                    "<h1>",
+                    "<head>",
+                    "<heading>",
+                    "<title>"
+                ],
+                answer: "<h1>"
+            },
+
+            {
+                question: "Which tag is used to create a paragraph?",
+                options: [
+                    "<p>",
+                    "<para>",
+                    "<text>",
+                    "<paragraph>"
+                ],
+                answer: "<p>"
+            },
+
+            {
+                question: "Which tag is used to create a hyperlink?",
+                options: [
+                    "<a>",
+                    "<link>",
+                    "<href>",
+                    "<url>"
+                ],
+                answer: "<a>"
+            },
+
+            {
+                question: "What does CSS stand for?",
+                options: [
+                    "Cascading Style Sheets",
+                    "Computer Style Sheets",
+                    "Creative Style System",
+                    "Colorful Style Sheets"
+                ],
+                answer: "Cascading Style Sheets"
+            },
+
+            {
+                question: "Which CSS property is used to change text color?",
+                options: [
+                    "color",
+                    "font-color",
+                    "text-color",
+                    "background-color"
+                ],
+                answer: "color"
+            },
+
+            {
+                question: "Which CSS property changes the background color?",
+                options: [
+                    "background-color",
+                    "color",
+                    "bgcolor",
+                    "background"
+                ],
+                answer: "background-color"
+            },
+
+            {
+                question: "Which language is used to make web pages interactive?",
+                options: [
+                    "JavaScript",
+                    "HTML",
+                    "CSS",
+                    "SQL"
+                ],
+                answer: "JavaScript"
+            },
+
+            {
+                question: "Which keyword is used to declare a variable in JavaScript?",
+                options: [
+                    "let",
+                    "variable",
+                    "define",
+                    "varname"
+                ],
+                answer: "let"
+            },
+
+            {
+                question: "Which symbol is used for comments in JavaScript for a single line?",
+                options: [
+                    "//",
+                    "<!-- -->",
+                    "#",
+                    "/* */"
+                ],
+                answer: "//"
+            },
+
+            {
+                question: "Which method is used to print something in the browser console?",
+                options: [
+                    "console.log()",
+                    "print()",
+                    "display()",
+                    "write()"
+                ],
+                answer: "console.log()"
+            },
+
+            {
+                question: "Which HTML tag is used to insert an image?",
+                options: [
+                    "<img>",
+                    "<image>",
+                    "<picture>",
+                    "<src>"
+                ],
+                answer: "<img>"
+            },
+
+            {
+                question: "Which HTML attribute specifies the image path?",
+                options: [
+                    "src",
+                    "href",
+                    "path",
+                    "link"
+                ],
+                answer: "src"
+            },
+
+            {
+                question: "Which HTML tag is used to create an unordered list?",
+                options: [
+                    "<ul>",
+                    "<ol>",
+                    "<li>",
+                    "<list>"
+                ],
+                answer: "<ul>"
+            },
+
+            {
+                question: "Which HTML tag represents a list item?",
+                options: [
+                    "<li>",
+                    "<item>",
+                    "<list>",
+                    "<ul>"
+                ],
+                answer: "<li>"
+            },
+
+            {
+                question: "Which CSS property is used to change the font size?",
+                options: [
+                    "font-size",
+                    "text-size",
+                    "size",
+                    "font-style"
+                ],
+                answer: "font-size"
+            },
+
+            {
+                question: "Which CSS layout system is useful for one-dimensional layouts?",
+                options: [
+                    "Flexbox",
+                    "Grid",
+                    "Float",
+                    "Table"
+                ],
+                answer: "Flexbox"
+            },
+
+            {
+                question: "Which CSS layout system is useful for two-dimensional layouts?",
+                options: [
+                    "Grid",
+                    "Flexbox",
+                    "Float",
+                    "Inline"
+                ],
+                answer: "Grid"
+            },
+
+            {
+                question: "What is responsive web design?",
+                options: [
+                    "Design that adapts to different screen sizes",
+                    "Design only for desktop",
+                    "Design only for mobile",
+                    "Design without CSS"
+                ],
+                answer: "Design that adapts to different screen sizes"
+            },
+
+            {
+                question: "Which protocol is commonly used to transfer web pages?",
+                options: [
+                    "HTTP",
+                    "FTP",
+                    "SMTP",
+                    "SSH"
+                ],
+                answer: "HTTP"
+            },
+
+            {
+                question: "What does URL stand for?",
+                options: [
+                    "Uniform Resource Locator",
+                    "Universal Resource Link",
+                    "Uniform Reference Link",
+                    "Universal Routing Locator"
+                ],
+                answer: "Uniform Resource Locator"
+            },
+
+            {
+                question: "Which HTML element contains metadata about a webpage?",
+                options: [
+                    "<head>",
+                    "<body>",
+                    "<main>",
+                    "<meta-data>"
+                ],
+                answer: "<head>"
+            },
+
+            {
+                question: "Which HTML element contains the visible content of a webpage?",
+                options: [
+                    "<body>",
+                    "<head>",
+                    "<main>",
+                    "<content>"
+                ],
+                answer: "<body>"
+            },
+
+            {
+                question: "Which JavaScript method selects an element by its ID?",
+                options: [
+                    "getElementById()",
+                    "getElement()",
+                    "selectById()",
+                    "findById()"
+                ],
+                answer: "getElementById()"
+            },
+
+            {
+                question: "Which JavaScript data type represents true or false?",
+                options: [
+                    "Boolean",
+                    "String",
+                    "Number",
+                    "Object"
+                ],
+                answer: "Boolean"
+            },
+
+            {
+                question: "Which operator is used for strict equality in JavaScript?",
+                options: [
+                    "===",
+                    "==",
+                    "=",
+                    "!="
+                ],
+                answer: "==="
+            },
+
+            {
+                question: "Which HTML tag is used to create a button?",
+                options: [
+                    "<button>",
+                    "<btn>",
+                    "<input-button>",
+                    "<click>"
+                ],
+                answer: "<button>"
+            },
+
+            {
+                question: "Which CSS property is used to make text bold?",
+                options: [
+                    "font-weight",
+                    "font-bold",
+                    "text-weight",
+                    "bold"
+                ],
+                answer: "font-weight"
+            },
+
+            {
+                question: "Which technology is mainly used to structure web pages?",
+                options: [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "SQL"
+                ],
+                answer: "HTML"
+            },
+
+            {
+                question: "Which technology is mainly used to style web pages?",
+                options: [
+                    "CSS",
+                    "HTML",
+                    "JavaScript",
+                    "Python"
+                ],
+                answer: "CSS"
+            }
+
+        ];
+
+
+        function shuffle(array) {
+
+            for (let i = array.length - 1; i > 0; i--) {
+
+                let j =
+                    Math.floor(Math.random() * (i + 1));
+
+                [array[i], array[j]] =
+                    [array[j], array[i]];
+
+            }
+
+            return array;
+        }
+
+
+        let selectedQuestions =
+            shuffle([...questionBank]).slice(0, 20);
+
+        let currentQuestion = 0;
+
+        let score = 0;
+
+        let selectedAnswer = "";
+
+
+        function loadQuestion() {
+
+            let q =
+                selectedQuestions[currentQuestion];
+
+            document.getElementById("question-number").innerText =
+                currentQuestion + 1;
+
+            document.getElementById("question").innerText =
+                q.question;
+
+            let optionsContainer =
+                document.getElementById("options");
+
+            optionsContainer.innerHTML = "";
+
+            selectedAnswer = "";
+
+            let shuffledOptions =
+                shuffle([...q.options]);
+
+
+            shuffledOptions.forEach((option, index) => {
+
+                let label =
+                    document.createElement("label");
+
+                label.className =
+                    "answer-option";
+
+
+                let input =
+                    document.createElement("input");
+
+                input.type = "radio";
+
+                input.name = "answer";
+
+                input.value = option;
+
+
+                let letter =
+                    document.createElement("span");
+
+                letter.className =
+                    "option-letter";
+
+                letter.innerText =
+                    String.fromCharCode(65 + index);
+
+
+                let text =
+                    document.createElement("span");
+
+                text.innerText = option;
+
+
+                label.appendChild(input);
+
+                label.appendChild(letter);
+
+                label.appendChild(text);
+
+
+                label.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".answer-option")
+                        .forEach(option =>
+                            option.classList.remove("selected")
+                        );
+
+                    label.classList.add("selected");
+
+                    selectedAnswer = option;
+
+                });
+
+
+                optionsContainer.appendChild(label);
+
+            });
+
+        }
+
+
+        document
+            .getElementById("next-btn")
+            .addEventListener("click", function () {
+
+                if (selectedAnswer === "") {
+
+                    alert("Please select an answer.");
+
+                    return;
+
+                }
+
+
+                if (
+                    selectedAnswer ===
+                    selectedQuestions[currentQuestion].answer
+                ) {
+
+                    score++;
+
+                }
+
+
+                if (currentQuestion < 19) {
+
+                    currentQuestion++;
+
+                    loadQuestion();
+
+                } else {
+
+                    localStorage.setItem(
+                        "webScore",
+                        score
+                    );
+
+                    window.location.href =
+                        "result.html";
+
+                }
+
+            });
+
+
+        loadQuestion();
+
+    </script>
+
+</body>
+
+</html>

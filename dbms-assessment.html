@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DBMS Assessment - SkillBridge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7ff;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            background: #173b8f;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main */
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 45px auto;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            color: #173b8f;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Progress */
+        .progress-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e2e7f5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 5%;
+            background: #2563eb;
+            transition: 0.3s;
+        }
+
+        /* Question Card */
+        .question-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .question-number {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .option {
+            display: block;
+            padding: 15px;
+            border: 2px solid #e1e5ef;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            border-color: #2563eb;
+            background: #f1f5ff;
+        }
+
+        .option input {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .button-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        button {
+            border: none;
+            padding: 13px 28px;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #nextBtn {
+            background: #173b8f;
+            color: white;
+        }
+
+        #nextBtn:hover {
+            background: #2563eb;
+        }
+
+        #submitBtn {
+            background: #16a34a;
+            color: white;
+            display: none;
+        }
+
+        #submitBtn:hover {
+            background: #15803d;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            background: #173b8f;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .question-card {
+                padding: 20px;
+            }
+
+            .question {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">SkillBridge</div>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Main -->
+    <div class="container">
+
+        <div class="heading">
+            <h1>🗄️ DBMS Assessment</h1>
+            <p>Test your Database Management System knowledge</p>
+        </div>
+
+
+        <!-- Progress -->
+        <div class="progress-box">
+
+            <div class="progress-info">
+                <span id="questionCount">Question 1 of 20</span>
+                <span id="progressPercent">5%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Question -->
+        <div class="question-card">
+
+            <div class="question-number" id="questionNumber">
+                Question 1
+            </div>
+
+            <div class="question" id="questionText"></div>
+
+            <label class="option">
+                <input type="radio" name="answer" value="0">
+                <span id="option0"></span>
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="1">
+                <span id="option1"></span>
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="2">
+                <span id="option2"></span>
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="3">
+                <span id="option3"></span>
+            </label>
+
+
+            <div class="button-area">
+
+                <button id="nextBtn" onclick="nextQuestion()">
+                    Next →
+                </button>
+
+                <button id="submitBtn" onclick="submitAssessment()">
+                    Submit Assessment
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        © 2026 SkillBridge | Build Your Skills. Build Your Future.
+    </footer>
+
+
+    <script>
+
+        const questions = [
+
+            {
+                question: "What is DBMS?",
+                options: [
+                    "Database Management System",
+                    "Data Backup Management System",
+                    "Database Memory System",
+                    "Data Management Software"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which of the following is an example of DBMS?",
+                options: [
+                    "Microsoft Word",
+                    "MySQL",
+                    "Google Chrome",
+                    "Windows"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which key uniquely identifies each record in a table?",
+                options: [
+                    "Foreign Key",
+                    "Candidate Key",
+                    "Primary Key",
+                    "Alternate Key"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which SQL command is used to retrieve data?",
+                options: [
+                    "SELECT",
+                    "INSERT",
+                    "UPDATE",
+                    "DELETE"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which SQL command is used to add new records?",
+                options: [
+                    "ADD",
+                    "INSERT",
+                    "CREATE",
+                    "UPDATE"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which command is used to remove a table completely?",
+                options: [
+                    "DELETE",
+                    "REMOVE",
+                    "DROP",
+                    "CLEAR"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which normal form removes repeating groups?",
+                options: [
+                    "1NF",
+                    "2NF",
+                    "3NF",
+                    "BCNF"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which normal form removes partial dependency?",
+                options: [
+                    "1NF",
+                    "2NF",
+                    "3NF",
+                    "BCNF"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which normal form removes transitive dependency?",
+                options: [
+                    "1NF",
+                    "2NF",
+                    "3NF",
+                    "BCNF"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "What does SQL stand for?",
+                options: [
+                    "Structured Query Language",
+                    "Simple Query Language",
+                    "Structured Question Language",
+                    "System Query Language"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which constraint prevents NULL values?",
+                options: [
+                    "UNIQUE",
+                    "NOT NULL",
+                    "DEFAULT",
+                    "CHECK"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which constraint ensures that values are unique?",
+                options: [
+                    "CHECK",
+                    "DEFAULT",
+                    "UNIQUE",
+                    "NOT NULL"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which SQL clause is used to filter records?",
+                options: [
+                    "WHERE",
+                    "ORDER BY",
+                    "GROUP BY",
+                    "SELECT"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which clause is used to sort query results?",
+                options: [
+                    "WHERE",
+                    "ORDER BY",
+                    "GROUP BY",
+                    "HAVING"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which SQL function returns the number of rows?",
+                options: [
+                    "SUM()",
+                    "AVG()",
+                    "COUNT()",
+                    "TOTAL()"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which property of a transaction means 'All or Nothing'?",
+                options: [
+                    "Atomicity",
+                    "Consistency",
+                    "Isolation",
+                    "Durability"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which ACID property ensures that committed data is not lost?",
+                options: [
+                    "Atomicity",
+                    "Consistency",
+                    "Isolation",
+                    "Durability"
+                ],
+                answer: 3
+            },
+
+            {
+                question: "Which command is used to save a transaction?",
+                options: [
+                    "SAVE",
+                    "COMMIT",
+                    "STORE",
+                    "FINISH"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "What is a foreign key?",
+                options: [
+                    "A key used to delete records",
+                    "A key that references a key in another table",
+                    "A key that stores NULL values",
+                    "A key used only for sorting"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which of the following is used to combine rows from multiple tables?",
+                options: [
+                    "JOIN",
+                    "MERGE ONLY",
+                    "CONNECT",
+                    "LINK"
+                ],
+                answer: 0
+            }
+
+        ];
+
+
+        let currentQuestion = 0;
+        let selectedAnswers = new Array(questions.length).fill(null);
+
+
+        function loadQuestion() {
+
+            const q = questions[currentQuestion];
+
+            document.getElementById("questionNumber").textContent =
+                "Question " + (currentQuestion + 1);
+
+            document.getElementById("questionText").textContent =
+                q.question;
+
+            for (let i = 0; i < 4; i++) {
+
+                document.getElementById("option" + i).textContent =
+                    q.options[i];
+
+            }
+
+
+            const radioButtons =
+                document.querySelectorAll('input[name="answer"]');
+
+            radioButtons.forEach(function(radio) {
+
+                radio.checked =
+                    Number(radio.value) === selectedAnswers[currentQuestion];
+
+            });
+
+
+            document.getElementById("questionCount").textContent =
+                "Question " + (currentQuestion + 1) + " of " + questions.length;
+
+
+            const percentage =
+                Math.round(((currentQuestion + 1) / questions.length) * 100);
+
+            document.getElementById("progressPercent").textContent =
+                percentage + "%";
+
+            document.getElementById("progressFill").style.width =
+                percentage + "%";
+
+
+            if (currentQuestion === questions.length - 1) {
+
+                document.getElementById("nextBtn").style.display = "none";
+
+                document.getElementById("submitBtn").style.display = "block";
+
+            } else {
+
+                document.getElementById("nextBtn").style.display = "block";
+
+                document.getElementById("submitBtn").style.display = "none";
+
+            }
+
+        }
+
+
+        function saveAnswer() {
+
+            const selected =
+                document.querySelector('input[name="answer"]:checked');
+
+            if (selected) {
+
+                selectedAnswers[currentQuestion] =
+                    Number(selected.value);
+
+            }
+
+        }
+
+
+        function nextQuestion() {
+
+            saveAnswer();
+
+            if (selectedAnswers[currentQuestion] === null) {
+
+                alert("Please select an answer first.");
+
+                return;
+
+            }
+
+            currentQuestion++;
+
+            loadQuestion();
+
+        }
+
+
+        function submitAssessment() {
+
+            saveAnswer();
+
+            if (selectedAnswers[currentQuestion] === null) {
+
+                alert("Please select an answer first.");
+
+                return;
+
+            }
+
+
+            let score = 0;
+
+
+            for (let i = 0; i < questions.length; i++) {
+
+                if (selectedAnswers[i] === questions[i].answer) {
+
+                    score++;
+
+                }
+
+            }
+
+
+            // Assessment score only
+            localStorage.setItem("dbmsScore", score);
+
+
+            // Go to result page
+            window.location.href = "result.html";
+
+        }
+
+
+        loadQuestion();
+
+    </script>
+
+</body>
+</html>

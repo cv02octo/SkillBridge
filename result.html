@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SkillBridge - Assessment Result</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#173b8f;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h2{
+    color:white;
+    font-size:24px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:15px;
+}
+
+nav a:hover{
+    opacity:.8;
+}
+
+
+/* HEADER */
+
+.result-header{
+    background:white;
+    text-align:center;
+    padding:55px 20px 45px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.small-title{
+    color:#2563eb;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.result-header h1{
+    font-size:40px;
+    color:#173b8f;
+    margin-bottom:10px;
+}
+
+.result-header p{
+    color:#6b7280;
+    font-size:16px;
+}
+
+
+/* MAIN */
+
+.result-container{
+    max-width:1150px;
+    margin:45px auto;
+    padding:0 25px;
+}
+
+
+/* SUMMARY */
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:22px;
+    margin-bottom:45px;
+}
+
+.summary-card{
+    background:white;
+    border-radius:16px;
+    padding:28px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.summary-card h3{
+    font-size:13px;
+    color:#6b7280;
+    margin-bottom:18px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.score-number{
+    font-size:38px;
+    font-weight:bold;
+    color:#173b8f;
+}
+
+.score-sub{
+    color:#6b7280;
+    font-size:14px;
+    margin-top:7px;
+}
+
+.level{
+    font-size:27px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.recommendation{
+    font-size:14px;
+    line-height:1.6;
+    color:#4b5563;
+}
+
+
+/* MIXED ASSESSMENT */
+
+.mixed-card{
+    background:linear-gradient(135deg,#173b8f,#2563eb);
+    color:white;
+    border-radius:18px;
+    padding:28px 32px;
+    margin-bottom:45px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 25px rgba(23,59,143,.18);
+}
+
+.mixed-card h2{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.mixed-card p{
+    font-size:14px;
+    opacity:.9;
+}
+
+.mixed-score{
+    font-size:36px;
+    font-weight:bold;
+}
+
+
+/* SECTION */
+
+.section-heading{
+    margin-bottom:22px;
+}
+
+.section-heading .label{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-heading h2{
+    color:#173b8f;
+    font-size:28px;
+    margin-top:7px;
+}
+
+.section-heading p{
+    color:#6b7280;
+    margin-top:7px;
+    font-size:14px;
+}
+
+
+/* SUBJECT GRID */
+
+.subject-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+
+/* SUBJECT CARD */
+
+.subject-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+    transition:.25s;
+}
+
+.subject-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.09);
+}
+
+.subject-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.subject-info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.subject-icon{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+}
+
+.subject-name{
+    font-size:17px;
+    font-weight:bold;
+    color:#1f2937;
+}
+
+.subject-status{
+    font-size:11px;
+    font-weight:bold;
+    padding:6px 11px;
+    border-radius:20px;
+    background:#ecfdf5;
+    color:#047857;
+}
+
+
+/* SCORE */
+
+.subject-score{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.score-text{
+    font-size:13px;
+    color:#6b7280;
+}
+
+.score-text strong{
+    font-size:25px;
+    color:#173b8f;
+}
+
+
+/* PROGRESS */
+
+.progress-area{
+    margin-top:5px;
+}
+
+.progress-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    width:100%;
+    height:8px;
+    background:#e9edf5;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:#2563eb;
+    border-radius:20px;
+}
+
+
+/* NOT ATTEMPTED */
+
+.not-attempted{
+    opacity:.75;
+}
+
+.not-attempted .subject-status{
+    background:#f3f4f6;
+    color:#6b7280;
+}
+
+.not-attempted .subject-icon{
+    background:#f3f4f6;
+}
+
+.not-attempted .progress-fill{
+    background:#d1d5db;
+}
+
+
+/* NEXT STEPS */
+
+.next-section{
+    margin-top:45px;
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+}
+
+.next-section h3{
+    color:#173b8f;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.next-section p{
+    color:#6b7280;
+    font-size:14px;
+}
+
+.action-buttons{
+    display:flex;
+    gap:12px;
+}
+
+.action-buttons a{
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.primary-btn{
+    background:#173b8f;
+    color:white;
+}
+
+.secondary-btn{
+    border:1px solid #173b8f;
+    color:#173b8f;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#9ca3af;
+    font-size:13px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        padding:18px 25px;
+    }
+
+    nav a{
+        margin-left:12px;
+        font-size:13px;
+    }
+
+    .summary-grid{
+        grid-template-columns:1fr;
+    }
+
+    .subject-grid{
+        grid-template-columns:1fr;
+    }
+
+    .result-header h1{
+        font-size:32px;
+    }
+
+    .mixed-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .next-section{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .action-buttons{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .action-buttons a{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h2>SkillBridge</h2>
+
+    <div>
+
+        <a href="index.html">Home</a>
+
+        <a href="assessment.html">Assessment</a>
+
+        <a href="roadmap.html">Roadmap</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<header class="result-header">
+
+    <div class="small-title">
+        ASSESSMENT COMPLETED
+    </div>
+
+    <h1>Your Assessment Result</h1>
+
+    <p>
+        Review your performance and identify the skills you should focus on next.
+    </p>
+
+</header>
+
+
+<main class="result-container">
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary-grid">
+
+
+        <div class="summary-card">
+
+            <h3>Overall Score</h3>
+
+            <div class="score-number" id="overall-score">
+                0 / 0
+            </div>
+
+            <div class="score-sub">
+                Overall performance
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Skill Level</h3>
+
+            <div class="level" id="skill-level">
+                Beginner
+            </div>
+
+            <div class="score-sub">
+                Based on your performance
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Recommendation</h3>
+
+            <div class="recommendation" id="recommendation">
+                Start with the fundamentals and gradually build your skills.
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MIXED ASSESSMENT -->
+
+    <div class="mixed-card">
+
+        <div>
+
+            <h2>Mixed Assessment</h2>
+
+            <p>
+                Your overall performance in the 50-question mixed assessment.
+            </p>
+
+        </div>
+
+        <div class="mixed-score" id="mixed-score">
+            -- / 50
+        </div>
+
+    </div>
+
+
+    <!-- SUBJECT PERFORMANCE -->
+
+    <div class="section-heading">
+
+        <div class="label">
+            PERFORMANCE ANALYSIS
+        </div>
+
+        <h2>
+            Subject-wise Performance
+        </h2>
+
+        <p>
+            See how you performed in each skill area.
+        </p>
+
+    </div>
+
+
+    <div class="subject-grid" id="subject-results"></div>
+
+
+    <!-- NEXT STEPS -->
+
+    <div class="next-section">
+
+        <div>
+
+            <h3>
+                Ready for your next step?
+            </h3>
+
+            <p>
+                Use your performance to build your personalized learning roadmap.
+            </p>
+
+        </div>
+
+
+        <div class="action-buttons">
+
+            <a href="roadmap.html" class="primary-btn">
+                View My Roadmap →
+            </a>
+
+            <a href="assessment.html" class="secondary-btn">
+                Take Another Assessment
+            </a>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 SkillBridge. Build Your Skills. Build Your Future.
+
+</footer>
+
+
+<script>
+
+
+/* SUBJECTS */
+
+const subjects = [
+
+    {
+        name:"Programming",
+        key:"programmingScore",
+        icon:"💻"
+    },
+
+    {
+        name:"Data Structures & Algorithms",
+        key:"dsaScore",
+        icon:"🧩"
+    },
+
+    {
+        name:"DBMS",
+        key:"dbmsScore",
+        icon:"🗄️"
+    },
+
+    {
+        name:"Operating System",
+        key:"osScore",
+        icon:"⚙️"
+    },
+
+    {
+        name:"Computer Networks",
+        key:"cnScore",
+        icon:"🌐"
+    },
+
+    {
+        name:"Cyber Security",
+        key:"cyberSecurityScore",
+        icon:"🔐"
+    },
+
+    {
+        name:"Web Development",
+        key:"webScore",
+        icon:"🖥️"
+    },
+
+    {
+        name:"Cloud Computing",
+        key:"cloudScore",
+        icon:"☁️"
+    },
+
+    {
+        name:"AI / ML",
+        key:"aimlScore",
+        icon:"🤖"
+    },
+
+    {
+        name:"Computer Organization",
+        key:"coaScore",
+        icon:"🧠"
+    }
+
+];
+
+
+const container =
+    document.getElementById("subject-results");
+
+
+let totalScore = 0;
+
+let totalQuestions = 0;
+
+
+/* SUBJECT RESULTS */
+
+subjects.forEach(subject => {
+
+
+    const savedScore =
+        localStorage.getItem(subject.key);
+
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "subject-card";
+
+
+    if(savedScore !== null){
+
+
+        const score =
+            Number(savedScore);
+
+
+        const percentage =
+            Math.round((score / 20) * 100);
+
+
+        totalScore += score;
+
+        totalQuestions += 20;
+
+
+        card.innerHTML = `
+
+            <div class="subject-top">
+
+                <div class="subject-info">
+
+                    <div class="subject-icon">
+                        ${subject.icon}
+                    </div>
+
+                    <div class="subject-name">
+                        ${subject.name}
+                    </div>
+
+                </div>
+
+                <div class="subject-status">
+                    Attempted
+                </div>
+
+            </div>
+
+
+            <div class="subject-score">
+
+                <div class="score-text">
+
+                    Score
+
+                    <br>
+
+                    <strong>
+                        ${score}/20
+                    </strong>
+
+                </div>
+
+
+                <div class="score-text">
+
+                    Performance
+
+                    <br>
+
+                    <strong>
+                        ${percentage}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-area">
+
+                <div class="progress-label">
+
+                    <span>
+                        Progress
+                    </span>
+
+                    <span>
+                        ${percentage}%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:${percentage}%">
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+    }else{
+
+
+        card.classList.add("not-attempted");
+
+
+        card.innerHTML = `
+
+            <div class="subject-top">
+
+                <div class="subject-info">
+
+                    <div class="subject-icon">
+                        ${subject.icon}
+                    </div>
+
+                    <div class="subject-name">
+                        ${subject.name}
+                    </div>
+
+                </div>
+
+                <div class="subject-status">
+                    Not Attempted
+                </div>
+
+            </div>
+
+
+            <div class="subject-score">
+
+                <div class="score-text">
+
+                    Score
+
+                    <br>
+
+                    <strong>
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="score-text">
+
+                    Performance
+
+                    <br>
+
+                    <strong>
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-area">
+
+                <div class="progress-label">
+
+                    <span>
+                        Progress
+                    </span>
+
+                    <span>
+                        Not started
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        style="width:0%">
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    container.appendChild(card);
+
+});
+
+
+/* MIXED SCORE */
+
+const mixedScore =
+    localStorage.getItem("mixedScore");
+
+
+if(mixedScore !== null){
+
+    document.getElementById("mixed-score").innerText =
+        mixedScore + " / 50";
+
+}
+
+
+/* OVERALL SCORE */
+
+if(totalQuestions > 0){
+
+
+    const overallPercentage =
+        Math.round((totalScore / totalQuestions) * 100);
+
+
+    document.getElementById("overall-score").innerText =
+        totalScore + " / " + totalQuestions;
+
+
+    if(overallPercentage >= 80){
+
+        document.getElementById("skill-level").innerText =
+            "Advanced";
+
+        document.getElementById("recommendation").innerText =
+            "Strong performance. Focus on advanced concepts, projects and interview preparation.";
+
+    }
+
+    else if(overallPercentage >= 50){
+
+        document.getElementById("skill-level").innerText =
+            "Intermediate";
+
+        document.getElementById("recommendation").innerText =
+            "You have a good foundation. Strengthen weaker subjects and practice more problems.";
+
+    }
+
+    else{
+
+        document.getElementById("skill-level").innerText =
+            "Beginner";
+
+        document.getElementById("recommendation").innerText =
+            "Focus on fundamentals first, then gradually move towards problem solving and projects.";
+
+    }
+
+}
+
+else if(mixedScore !== null){
+
+
+    const score =
+        Number(mixedScore);
+
+
+    const percentage =
+        Math.round((score / 50) * 100);
+
+
+    document.getElementById("overall-score").innerText =
+        score + " / 50";
+
+
+    if(percentage >= 80){
+
+        document.getElementById("skill-level").innerText =
+            "Advanced";
+
+        document.getElementById("recommendation").innerText =
+            "Strong performance. Focus on advanced concepts, projects and interview preparation.";
+
+    }
+
+    else if(percentage >= 50){
+
+        document.getElementById("skill-level").innerText =
+            "Intermediate";
+
+        document.getElementById("recommendation").innerText =
+            "You have a good foundation. Strengthen weaker areas and practice more questions.";
+
+    }
+
+    else{
+
+        document.getElementById("skill-level").innerText =
+            "Beginner";
+
+        document.getElementById("recommendation").innerText =
+            "Focus on fundamentals first and gradually build your problem-solving skills.";
+
+    }
+
+}
+
+
+</script>
+
+</body>
+</html>

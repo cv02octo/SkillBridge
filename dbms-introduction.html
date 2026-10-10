@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Introduction to DBMS | SkillBridge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 24px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 35px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .content-card h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .content-card p {
+            line-height: 1.7;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+
+        .content-card ul {
+            margin-left: 25px;
+            line-height: 1.9;
+            color: #4b5563;
+        }
+
+        .example {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .example strong {
+            color: #1d4ed8;
+        }
+
+        .mcq {
+            margin-bottom: 25px;
+        }
+
+        .mcq h3 {
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .option {
+            display: block;
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eff6ff;
+            border-color: #2563eb;
+        }
+
+        .option input {
+            margin-right: 8px;
+        }
+
+        .submit-btn,
+        .complete-btn {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover,
+        .complete-btn:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .complete-section {
+            text-align: center;
+            margin: 35px 0 50px;
+        }
+
+        .complete-btn {
+            background: #16a34a;
+            padding: 14px 28px;
+        }
+
+        .complete-btn:hover {
+            background: #15803d;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111827;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        SkillBridge
+    </div>
+
+    <div>
+
+        <a href="index.html">Home</a>
+
+        <a href="subject.html">Subjects</a>
+
+        <a href="roadmap.html">Roadmap</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <section class="hero">
+
+        <h1>📘 Introduction to DBMS</h1>
+
+        <p>
+            Learn the basics of Database Management System
+        </p>
+
+    </section>
+
+
+    <a href="dbms.html" class="back-btn">
+        ← Back to DBMS
+    </a>
+
+
+    <div class="content-card">
+
+        <h2>📖 What is DBMS?</h2>
+
+        <p>
+            DBMS stands for <strong>Database Management System</strong>.
+            It is a software system that helps us create, store,
+            manage and retrieve data from a database.
+        </p>
+
+        <p>
+            Instead of storing information in separate files,
+            a DBMS allows us to store data in an organized way
+            and access it easily whenever required.
+        </p>
+
+        <div class="example">
+
+            <strong>💡 Simple Example:</strong>
+
+            <p>
+                Suppose a college has information about 5,000 students.
+                Their names, roll numbers, courses and marks can be
+                stored and managed using a DBMS such as MySQL.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <h2>🎯 Why Do We Need DBMS?</h2>
+
+        <p>
+            A DBMS is useful because it makes data management
+            easier, safer and more efficient.
+        </p>
+
+        <ul>
+
+            <li>Stores large amounts of data.</li>
+
+            <li>Makes data retrieval easy.</li>
+
+            <li>Reduces data redundancy.</li>
+
+            <li>Provides data security.</li>
+
+            <li>Allows multiple users to access data.</li>
+
+            <li>Maintains data consistency.</li>
+
+            <li>Provides backup and recovery.</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <h2>⭐ Features of DBMS</h2>
+
+        <ul>
+
+            <li>Data storage and management</li>
+
+            <li>Data security</li>
+
+            <li>Data consistency</li>
+
+            <li>Data sharing</li>
+
+            <li>Backup and recovery</li>
+
+            <li>Concurrency control</li>
+
+            <li>Reduced data redundancy</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <h2>🗄️ Examples of DBMS</h2>
+
+        <ul>
+
+            <li>MySQL</li>
+
+            <li>Oracle Database</li>
+
+            <li>Microsoft SQL Server</li>
+
+            <li>PostgreSQL</li>
+
+            <li>MongoDB</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <h2>📝 Quick Revision</h2>
+
+        <ul>
+
+            <li>DBMS = Database Management System</li>
+
+            <li>It manages data stored in databases.</li>
+
+            <li>It provides security and data consistency.</li>
+
+            <li>It reduces data redundancy.</li>
+
+            <li>MySQL is an example of DBMS.</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <h2>❓ Quick MCQs</h2>
+
+
+        <div class="mcq">
+
+            <h3>
+                1. What does DBMS stand for?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="a">
+                Database Management System
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="b">
+                Data Backup Management System
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="c">
+                Database Machine System
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="d">
+                Data Management Software
+            </label>
+
+        </div>
+
+
+        <div class="mcq">
+
+            <h3>
+                2. Which of the following is an example of DBMS?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="a">
+                MS Paint
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="b">
+                MySQL
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="c">
+                Calculator
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="d">
+                Notepad
+            </label>
+
+        </div>
+
+
+        <div class="mcq">
+
+            <h3>
+                3. Which is a major advantage of DBMS?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="a">
+                Data security
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="b">
+                Data loss
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="c">
+                More redundancy
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="d">
+                No data management
+            </label>
+
+        </div>
+
+
+        <button class="submit-btn" onclick="checkAnswers()">
+            Check Answers
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+
+    <div class="complete-section">
+
+        <h2>
+            🎯 Completed the Topic?
+        </h2>
+
+        <p style="margin: 12px 0 18px; color:#6b7280;">
+            Mark this topic as completed to update your DBMS progress.
+        </p>
+
+        <button
+            id="completeBtn"
+            class="complete-btn"
+            onclick="markComplete()">
+
+            Mark as Completed
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    © 2026 SkillBridge |
+    Learn. Improve. Get Ready.
+
+</footer>
+
+
+<script>
+
+    function checkAnswers() {
+
+        let score = 0;
+
+        const q1 =
+            document.querySelector('input[name="q1"]:checked');
+
+        const q2 =
+            document.querySelector('input[name="q2"]:checked');
+
+        const q3 =
+            document.querySelector('input[name="q3"]:checked');
+
+
+        if (q1 && q1.value === "a") {
+            score++;
+        }
+
+        if (q2 && q2.value === "b") {
+            score++;
+        }
+
+        if (q3 && q3.value === "a") {
+            score++;
+        }
+
+
+        document.getElementById("result").textContent =
+            "Your Score: " + score + "/3";
+
+    }
+
+
+    function markComplete() {
+
+        localStorage.setItem(
+            "dbms_introduction",
+            "completed"
+        );
+
+
+        const button =
+            document.getElementById("completeBtn");
+
+
+        button.textContent =
+            "✓ Topic Completed";
+
+        button.disabled = true;
+
+        button.style.background =
+            "#16a34a";
+
+    }
+
+
+    function loadCompletion() {
+
+        const completed =
+            localStorage.getItem(
+                "dbms_introduction"
+            );
+
+
+        if (completed === "completed") {
+
+            const button =
+                document.getElementById("completeBtn");
+
+            button.textContent =
+                "✓ Topic Completed";
+
+            button.disabled = true;
+
+        }
+
+    }
+
+
+    loadCompletion();
+
+</script>
+
+</body>
+
+</html>

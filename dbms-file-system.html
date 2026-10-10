@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DBMS vs File System | SkillBridge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 24px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 35px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .content-card h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .content-card p {
+            line-height: 1.7;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+
+        .content-card ul {
+            margin-left: 25px;
+            line-height: 1.9;
+            color: #4b5563;
+        }
+
+        .example {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .example strong {
+            color: #1d4ed8;
+        }
+
+        /* COMPARISON TABLE */
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d1d5db;
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        /* MCQ */
+
+        .mcq {
+            margin-bottom: 30px;
+        }
+
+        .mcq h3 {
+            color: #111827;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .option {
+            display: block;
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            padding: 13px;
+            margin: 9px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eff6ff;
+            border-color: #2563eb;
+        }
+
+        .option input {
+            margin-right: 8px;
+        }
+
+        .submit-btn {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 18px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* COMPLETE */
+
+        .complete-section {
+            text-align: center;
+            margin: 35px 0 50px;
+        }
+
+        .complete-btn {
+            border: none;
+            background: #16a34a;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .complete-btn:hover {
+            background: #15803d;
+        }
+
+        .complete-btn:disabled {
+            cursor: default;
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111827;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            table {
+                min-width: 650px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            SkillBridge
+        </div>
+
+        <div>
+
+            <a href="index.html">Home</a>
+
+            <a href="subject.html">Subjects</a>
+
+            <a href="roadmap.html">Roadmap</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h1>
+                📂 DBMS vs File System
+            </h1>
+
+            <p>
+                Understand why DBMS is better for managing large amounts of data
+            </p>
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+
+        <a href="dbms.html" class="back-btn">
+            ← Back to DBMS
+        </a>
+
+
+        <!-- FILE SYSTEM -->
+
+        <div class="content-card">
+
+            <h2>
+                📁 What is a File System?
+            </h2>
+
+            <p>
+                A file system is a method of storing and organizing
+                data in files and folders on a computer.
+            </p>
+
+            <p>
+                For example, a college may store student information
+                in separate Excel files, text files or folders.
+            </p>
+
+            <div class="example">
+
+                <strong>💡 Example:</strong>
+
+                <p>
+                    Imagine a college stores student names in one file,
+                    marks in another file and attendance in another file.
+                    Managing and connecting this information becomes difficult.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DBMS -->
+
+        <div class="content-card">
+
+            <h2>
+                🗄️ What is DBMS?
+            </h2>
+
+            <p>
+                DBMS stands for Database Management System.
+                It is software used to store, organize, retrieve
+                and manage data in a structured database.
+            </p>
+
+            <p>
+                Examples include MySQL, Oracle, PostgreSQL and
+                Microsoft SQL Server.
+            </p>
+
+        </div>
+
+
+        <!-- COMPARISON -->
+
+        <div class="content-card">
+
+            <h2>
+                ⚖️ DBMS vs File System
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <tr>
+                        <th>Feature</th>
+                        <th>File System</th>
+                        <th>DBMS</th>
+                    </tr>
+
+                    <tr>
+                        <td>Data Organization</td>
+                        <td>Files and folders</td>
+                        <td>Structured database</td>
+                    </tr>
+
+                    <tr>
+                        <td>Data Redundancy</td>
+                        <td>High</td>
+                        <td>Low</td>
+                    </tr>
+
+                    <tr>
+                        <td>Data Security</td>
+                        <td>Limited</td>
+                        <td>Better security</td>
+                    </tr>
+
+                    <tr>
+                        <td>Data Sharing</td>
+                        <td>Difficult</td>
+                        <td>Easy</td>
+                    </tr>
+
+                    <tr>
+                        <td>Data Consistency</td>
+                        <td>Difficult to maintain</td>
+                        <td>Better consistency</td>
+                    </tr>
+
+                    <tr>
+                        <td>Backup and Recovery</td>
+                        <td>Limited</td>
+                        <td>Available</td>
+                    </tr>
+
+                    <tr>
+                        <td>Multiple Users</td>
+                        <td>Limited support</td>
+                        <td>Multiple users supported</td>
+                    </tr>
+
+                    <tr>
+                        <td>Querying</td>
+                        <td>Difficult</td>
+                        <td>Easy using SQL</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROBLEMS -->
+
+        <div class="content-card">
+
+            <h2>
+                ⚠️ Problems with File System
+            </h2>
+
+            <ul>
+
+                <li>Data redundancy</li>
+
+                <li>Data inconsistency</li>
+
+                <li>Difficult data sharing</li>
+
+                <li>Limited security</li>
+
+                <li>Difficult data searching</li>
+
+                <li>Limited backup and recovery</li>
+
+                <li>Difficulty handling multiple users</li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- ADVANTAGES -->
+
+        <div class="content-card">
+
+            <h2>
+                ⭐ Advantages of DBMS
+            </h2>
+
+            <ul>
+
+                <li>Reduces data redundancy</li>
+
+                <li>Provides better security</li>
+
+                <li>Easy data retrieval</li>
+
+                <li>Supports multiple users</li>
+
+                <li>Maintains data consistency</li>
+
+                <li>Provides backup and recovery</li>
+
+                <li>Allows easy data sharing</li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- REAL LIFE EXAMPLE -->
+
+        <div class="content-card">
+
+            <h2>
+                🌍 Real-Life Example
+            </h2>
+
+            <p>
+                Think about a college management system.
+            </p>
+
+            <p>
+                The college has thousands of students.
+                Their admission details, marks, attendance,
+                fees and course information need to be stored.
+            </p>
+
+            <p>
+                Managing all this information through separate files
+                would be difficult.
+            </p>
+
+            <div class="example">
+
+                <strong>✅ Solution:</strong>
+
+                <p>
+                    A DBMS can store all this information in related
+                    tables and allow authorized users to retrieve
+                    the required data easily.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK REVISION -->
+
+        <div class="content-card">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+            <ul>
+
+                <li>
+                    File System stores data in files and folders.
+                </li>
+
+                <li>
+                    DBMS stores data in an organized database.
+                </li>
+
+                <li>
+                    File systems may have high data redundancy.
+                </li>
+
+                <li>
+                    DBMS provides better security.
+                </li>
+
+                <li>
+                    DBMS supports multiple users.
+                </li>
+
+                <li>
+                    SQL can be used to retrieve data from a DBMS.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- MCQs -->
+
+        <div class="content-card">
+
+            <h2>
+                ❓ Quick MCQs
+            </h2>
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="mcq">
+
+                <h3>
+                    1. Which system stores data mainly in files and folders?
+                </h3>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="a">
+
+                    A. DBMS
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="b">
+
+                    B. File System
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="c">
+
+                    C. Compiler
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="d">
+
+                    D. Operating System
+
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="mcq">
+
+                <h3>
+                    2. Which system generally provides better data security?
+                </h3>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="a">
+
+                    A. File System
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="b">
+
+                    B. DBMS
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="c">
+
+                    C. Text Editor
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="d">
+
+                    D. Calculator
+
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="mcq">
+
+                <h3>
+                    3. Which problem is commonly associated with file systems?
+                </h3>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="a">
+
+                    A. Data redundancy
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="b">
+
+                    B. Better security
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="c">
+
+                    C. Easy SQL querying
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="d">
+
+                    D. Automatic recovery
+
+                </label>
+
+            </div>
+
+
+            <button
+                class="submit-btn"
+                onclick="checkAnswers()">
+
+                Check Answers
+
+            </button>
+
+
+            <p id="result"></p>
+
+        </div>
+
+
+        <!-- COMPLETE -->
+
+        <div class="complete-section">
+
+            <h2>
+                🎯 Completed this topic?
+            </h2>
+
+            <p style="margin-top:12px; color:#6b7280;">
+
+                Mark this topic as completed to update
+                your DBMS progress.
+
+            </p>
+
+
+            <button
+                id="completeBtn"
+                class="complete-btn"
+                onclick="markComplete()">
+
+                Mark as Completed
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 SkillBridge |
+        Learn. Improve. Get Ready.
+
+    </footer>
+
+
+    <script>
+
+        function checkAnswers() {
+
+            let score = 0;
+
+
+            const q1 =
+                document.querySelector(
+                    'input[name="q1"]:checked'
+                );
+
+
+            const q2 =
+                document.querySelector(
+                    'input[name="q2"]:checked'
+                );
+
+
+            const q3 =
+                document.querySelector(
+                    'input[name="q3"]:checked'
+                );
+
+
+            if (q1 && q1.value === "b") {
+                score++;
+            }
+
+
+            if (q2 && q2.value === "b") {
+                score++;
+            }
+
+
+            if (q3 && q3.value === "a") {
+                score++;
+            }
+
+
+            document.getElementById("result").textContent =
+                "Your Score: " + score + "/3";
+
+        }
+
+
+        function markComplete() {
+
+            localStorage.setItem(
+                "dbms_file-system",
+                "completed"
+            );
+
+
+            const button =
+                document.getElementById("completeBtn");
+
+
+            button.textContent =
+                "✓ Topic Completed";
+
+
+            button.disabled = true;
+
+        }
+
+
+        function loadCompletion() {
+
+            const completed =
+                localStorage.getItem(
+                    "dbms_file-system"
+                );
+
+
+            if (completed === "completed") {
+
+                const button =
+                    document.getElementById("completeBtn");
+
+
+                button.textContent =
+                    "✓ Topic Completed";
+
+
+                button.disabled = true;
+
+            }
+
+        }
+
+
+        loadCompletion();
+
+    </script>
+
+
+</body>
+
+</html>

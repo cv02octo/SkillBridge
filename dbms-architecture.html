@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DBMS Architecture | SkillBridge</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#1f2937;
+}
+
+/* NAVBAR */
+
+nav{
+    background:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+nav a{
+    text-decoration:none;
+    color:#374151;
+    margin-left:24px;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:86%;
+    max-width:1000px;
+    margin:auto;
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:55px 20px 35px;
+}
+
+.hero h1{
+    font-size:40px;
+    color:#111827;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#6b7280;
+    font-size:17px;
+}
+
+
+/* CONTENT CARD */
+
+.content-card{
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    margin-bottom:25px;
+}
+
+.content-card h2{
+    color:#173b8f;
+    margin-bottom:15px;
+}
+
+.content-card p{
+    color:#4b5563;
+    line-height:1.7;
+    margin-bottom:12px;
+}
+
+
+/* ARCHITECTURE DIAGRAM */
+
+.architecture{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    margin:30px 0;
+}
+
+.layer{
+    width:80%;
+    padding:22px;
+    border-radius:12px;
+    text-align:center;
+    color:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.layer h3{
+    margin-bottom:7px;
+}
+
+.layer p{
+    color:white;
+    margin:0;
+    opacity:.95;
+}
+
+.layer-1{
+    background:#2563eb;
+}
+
+.layer-2{
+    background:#4f46e5;
+}
+
+.layer-3{
+    background:#173b8f;
+}
+
+.arrow{
+    font-size:25px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+
+/* TYPES */
+
+.types{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.type-card{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    padding:22px;
+    border-radius:12px;
+}
+
+.type-card h3{
+    color:#173b8f;
+    margin-bottom:10px;
+}
+
+.type-card p{
+    font-size:14px;
+    margin:0;
+}
+
+
+/* EXAMPLE */
+
+.example{
+    background:#eef4ff;
+    border-left:5px solid #2563eb;
+    padding:20px;
+    border-radius:8px;
+    margin-top:15px;
+}
+
+.example strong{
+    color:#173b8f;
+}
+
+
+/* REVISION */
+
+.revision ul{
+    padding-left:22px;
+}
+
+.revision li{
+    margin-bottom:10px;
+    color:#4b5563;
+}
+
+
+/* MCQ */
+
+.mcq{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:22px;
+    margin-bottom:18px;
+}
+
+.mcq h3{
+    color:#173b8f;
+    margin-bottom:15px;
+}
+
+.option{
+    display:block;
+    background:white;
+    border:1px solid #d1d5db;
+    padding:12px;
+    border-radius:8px;
+    margin:8px 0;
+    cursor:pointer;
+}
+
+.option:hover{
+    border-color:#2563eb;
+    background:#eef4ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+
+/* BUTTON */
+
+.check-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.check-btn:hover{
+    background:#1d4ed8;
+}
+
+
+/* RESULT */
+
+#result{
+    margin-top:20px;
+    padding:15px;
+    border-radius:8px;
+    font-weight:bold;
+    display:none;
+}
+
+
+/* COMPLETE */
+
+.complete-section{
+    text-align:center;
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    margin:30px 0 50px;
+}
+
+.complete-section h2{
+    color:#173b8f;
+    margin-bottom:10px;
+}
+
+.complete-section p{
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.complete-btn{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:13px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.complete-btn:hover{
+    background:#15803d;
+}
+
+.complete-btn.completed{
+    background:#6b7280;
+    cursor:default;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0 8px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .layer{
+        width:100%;
+    }
+
+    .types{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        SkillBridge
+    </div>
+
+    <div>
+
+        <a href="index.html">Home</a>
+        <a href="subject.html">Subjects</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>🏗️ DBMS Architecture</h1>
+
+    <p>
+        Understand how different components of a DBMS communicate
+    </p>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<div class="content-card">
+
+    <h2>📘 What is DBMS Architecture?</h2>
+
+    <p>
+        DBMS Architecture describes how a database system is
+        organized and how users interact with the database.
+    </p>
+
+    <p>
+        It explains how the user request travels through different
+        layers before reaching the actual database.
+    </p>
+
+    <div class="example">
+
+        <strong>Simple Example:</strong>
+
+        <p>
+            When you search for a student's marks, your request
+            goes from the application to the DBMS and finally
+            retrieves the required information from the database.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- THREE TIER -->
+
+<div class="content-card">
+
+    <h2>🏢 Three-Tier Architecture</h2>
+
+    <p>
+        The three-tier architecture divides the DBMS system
+        into three main layers.
+    </p>
+
+
+    <div class="architecture">
+
+        <div class="layer layer-1">
+
+            <h3>1️⃣ Presentation Layer</h3>
+
+            <p>
+                This is the layer through which the user
+                interacts with the system.
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            ↓
+        </div>
+
+
+        <div class="layer layer-2">
+
+            <h3>2️⃣ Application Layer</h3>
+
+            <p>
+                It processes the user's request and communicates
+                with the database.
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            ↓
+        </div>
+
+
+        <div class="layer layer-3">
+
+            <h3>3️⃣ Database Layer</h3>
+
+            <p>
+                This layer stores and manages the actual data.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TYPES -->
+
+<div class="content-card">
+
+    <h2>📚 Types of DBMS Architecture</h2>
+
+    <div class="types">
+
+        <div class="type-card">
+
+            <h3>1-Tier</h3>
+
+            <p>
+                User directly interacts with the database.
+                It is commonly used for local applications.
+            </p>
+
+        </div>
+
+
+        <div class="type-card">
+
+            <h3>2-Tier</h3>
+
+            <p>
+                Client communicates directly with the
+                database server.
+            </p>
+
+        </div>
+
+
+        <div class="type-card">
+
+            <h3>3-Tier</h3>
+
+            <p>
+                Client communicates with the application server,
+                which then communicates with the database.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- REAL LIFE -->
+
+<div class="content-card">
+
+    <h2>🌐 Real-Life Example</h2>
+
+    <p>
+        Imagine you are using a college student portal.
+    </p>
+
+    <div class="example">
+
+        <p>
+            <strong>Step 1:</strong> You enter your roll number
+            and password.
+        </p>
+
+        <p>
+            <strong>Step 2:</strong> The application processes
+            your request.
+        </p>
+
+        <p>
+            <strong>Step 3:</strong> DBMS searches the database.
+        </p>
+
+        <p>
+            <strong>Step 4:</strong> Your student information is
+            returned to the application.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- REVISION -->
+
+<div class="content-card revision">
+
+    <h2>📝 Quick Revision</h2>
+
+    <ul>
+
+        <li>DBMS architecture describes the structure of a database system.</li>
+
+        <li>1-tier architecture directly connects the user with the database.</li>
+
+        <li>2-tier architecture uses client and database server.</li>
+
+        <li>3-tier architecture contains presentation, application and database layers.</li>
+
+        <li>3-tier architecture provides better security and scalability.</li>
+
+    </ul>
+
+</div>
+
+
+<!-- MCQS -->
+
+<div class="content-card">
+
+    <h2>❓ Quick MCQs</h2>
+
+    <p>
+        Test your understanding of DBMS Architecture.
+    </p>
+
+
+    <!-- Q1 -->
+
+    <div class="mcq">
+
+        <h3>
+            1. Which layer directly interacts with the user?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q1" value="A">
+            A. Database Layer
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="B">
+            B. Presentation Layer
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="C">
+            C. Application Layer
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="D">
+            D. Storage Layer
+        </label>
+
+    </div>
+
+
+    <!-- Q2 -->
+
+    <div class="mcq">
+
+        <h3>
+            2. How many layers are present in 3-tier architecture?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q2" value="A">
+            A. 1
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="B">
+            B. 2
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="C">
+            C. 3
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="D">
+            D. 4
+        </label>
+
+    </div>
+
+
+    <!-- Q3 -->
+
+    <div class="mcq">
+
+        <h3>
+            3. Which layer stores and manages actual database data?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q3" value="A">
+            A. Presentation Layer
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="B">
+            B. Application Layer
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="C">
+            C. Database Layer
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="D">
+            D. Client Layer
+        </label>
+
+    </div>
+
+
+    <!-- Q4 -->
+
+    <div class="mcq">
+
+        <h3>
+            4. In which architecture does the client directly communicate with the database server?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q4" value="A">
+            A. 1-Tier
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="B">
+            B. 2-Tier
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="C">
+            C. 3-Tier
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="D">
+            D. 4-Tier
+        </label>
+
+    </div>
+
+
+    <!-- Q5 -->
+
+    <div class="mcq">
+
+        <h3>
+            5. Which architecture generally provides better scalability?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q5" value="A">
+            A. 1-Tier
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="B">
+            B. 2-Tier
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="C">
+            C. 3-Tier
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="D">
+            D. None
+        </label>
+
+    </div>
+
+
+    <button class="check-btn" onclick="checkAnswers()">
+        Check Answers
+    </button>
+
+
+    <div id="result"></div>
+
+</div>
+
+
+<!-- COMPLETE -->
+
+<div class="complete-section">
+
+    <h2>🎯 Complete This Topic</h2>
+
+    <p>
+        Finished studying DBMS Architecture?
+        Mark this topic as completed.
+    </p>
+
+    <button
+        id="completeBtn"
+        class="complete-btn"
+        onclick="markCompleted()">
+
+        Mark as Completed
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+    © 2026 SkillBridge |
+    Learn. Improve. Get Ready.
+
+</footer>
+
+
+<script>
+
+/* MCQ ANSWERS */
+
+function checkAnswers(){
+
+    const answers = {
+        q1:"B",
+        q2:"C",
+        q3:"C",
+        q4:"B",
+        q5:"C"
+    };
+
+    let score = 0;
+
+    let attempted = 0;
+
+
+    for(let question in answers){
+
+        const selected =
+            document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+
+        if(selected){
+
+            attempted++;
+
+
+            if(selected.value === answers[question]){
+
+                score++;
+
+            }
+
+        }
+
+    }
+
+
+    const result =
+        document.getElementById("result");
+
+
+    result.style.display = "block";
+
+
+    if(attempted < 5){
+
+        result.style.background = "#fff7ed";
+        result.style.color = "#c2410c";
+
+        result.innerHTML =
+            "⚠️ Please answer all 5 questions first.";
+
+        return;
+
+    }
+
+
+    if(score >= 4){
+
+        result.style.background = "#ecfdf5";
+        result.style.color = "#047857";
+
+        result.innerHTML =
+            "🎉 Excellent! You scored " +
+            score +
+            "/5.";
+
+    }
+
+    else if(score >= 3){
+
+        result.style.background = "#eff6ff";
+        result.style.color = "#1d4ed8";
+
+        result.innerHTML =
+            "👍 Good job! You scored " +
+            score +
+            "/5. Revise the topic once.";
+
+    }
+
+    else{
+
+        result.style.background = "#fff1f2";
+        result.style.color = "#be123c";
+
+        result.innerHTML =
+            "📚 Keep practicing! You scored " +
+            score +
+            "/5. Go through the explanation again.";
+
+    }
+
+}
+
+
+/* MARK TOPIC COMPLETED */
+
+function markCompleted(){
+
+    localStorage.setItem(
+        "dbms_architecture",
+        "completed"
+    );
+
+
+    const button =
+        document.getElementById("completeBtn");
+
+
+    button.innerHTML =
+        "✓ Topic Completed";
+
+
+    button.classList.add(
+        "completed"
+    );
+
+
+    button.disabled = true;
+
+}
+
+
+/* LOAD SAVED STATUS */
+
+function loadStatus(){
+
+    if(
+        localStorage.getItem(
+            "dbms_architecture"
+        ) === "completed"
+    ){
+
+        const button =
+            document.getElementById("completeBtn");
+
+
+        button.innerHTML =
+            "✓ Topic Completed";
+
+
+        button.classList.add(
+            "completed"
+        );
+
+
+        button.disabled = true;
+
+    }
+
+}
+
+
+loadStatus();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Assessment - SkillBridge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="subject.html" class="active">Assessments</a>
+            <a href="roadmap.html">Roadmaps</a>
+            <a href="track.html">Progress</a>
+            <a href="internship.html">Internships</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="nav-btn-secondary">Log In</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SUBJECT ASSESSMENT CATALOG -->
+    <section class="features-section" style="background: var(--bg-main);">
+
+        <div class="features-header animate-fade-in">
+            <span class="badge-tag"><i class="fa-solid fa-vial"></i> DIAGNOSTIC TEST CATALOG</span>
+            <h2>Choose Your Skill Assessment</h2>
+            <p>Select a subject to test your knowledge. Your diagnostic results will generate your customized learning roadmap and placement readiness score.</p>
+            
+            <!-- Subject Search Input -->
+            <div style="max-width: 520px; margin: 25px auto 0; position: relative;">
+                <input type="text" id="subject-search" placeholder="🔍 Search subjects (e.g. DSA, DBMS, Web, Python)..." 
+                       style="width: 100%; padding: 14px 24px; border: 1.5px solid var(--border); border-radius: var(--radius-full); font-size: 15px; outline: none; background: white; box-shadow: var(--shadow-sm);">
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="subject-filter-pills">
+                <button class="filter-pill active" onclick="filterCategory('all', this)">All Subjects</button>
+                <button class="filter-pill" onclick="filterCategory('core', this)">Core CS</button>
+                <button class="filter-pill" onclick="filterCategory('dev', this)">Web & Cloud</button>
+                <button class="filter-pill" onclick="filterCategory('emerging', this)">AI & Security</button>
+            </div>
+        </div>
+
+        <!-- MIXED ASSESSMENT BANNER -->
+        <div class="student-cta-box animate-pulse" style="margin-bottom: 50px; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%); color: white;">
+            <div class="student-cta-content">
+                <span class="badge-tag" style="color: #a5b4fc;">COMPREHENSIVE TEST</span>
+                <h2 style="color: white;">Mixed Placement Assessment</h2>
+                <p style="color: #cbd5e1;">Test your knowledge across multiple core engineering subjects with a single unified diagnostic test.</p>
+                <a href="mixed.html" class="btn-hero-primary">
+                    Start Mixed Test (50 Qs) <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="student-cta-graphic">
+                <img src="student-laptop.jpg" alt="Student Taking Quiz" style="max-height: 200px; border-radius: 16px;">
+            </div>
+        </div>
+
+        <!-- CORE COMPUTER SCIENCE -->
+        <div class="cat-section" data-cat="core">
+            <h2 class="features-header" style="text-align: left; margin-bottom: 25px; font-size: 24px;">
+                <i class="fa-solid fa-laptop-code" style="color: var(--primary);"></i> Core Computer Science
+            </h2>
+
+            <div class="features-grid-6">
+                <div class="feature-card-clean professional-card" data-cat="core">
+                    <div class="pastel-badge-icon icon-blue">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3>Programming Fundamentals</h3>
+                    <p>Test your core programming logic, control structures, OOP concepts, and syntax mastery.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 25 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Beginner</span>
+                    </div>
+                    <a href="programming.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="core">
+                    <div class="pastel-badge-icon icon-purple">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Data Structures & Algorithms</h3>
+                    <p>Test your knowledge of arrays, linked lists, trees, graphs, sorting, and time complexity.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 30 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Intermediate</span>
+                    </div>
+                    <a href="dsa.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="core">
+                    <div class="pastel-badge-icon icon-green">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3>DBMS & SQL Queries</h3>
+                    <p>Test relational databases, SQL queries, normalization, ER diagrams, and transactions.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 25 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Intermediate</span>
+                    </div>
+                    <a href="dbms-assessment.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="core">
+                    <div class="pastel-badge-icon icon-yellow">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3>Operating Systems</h3>
+                    <p>Test process synchronization, CPU scheduling, memory management, and file systems.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 20 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Intermediate</span>
+                    </div>
+                    <a href="os.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="core">
+                    <div class="pastel-badge-icon icon-red">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3>Computer Networks</h3>
+                    <p>Test OSI layers, TCP/IP protocols, routing algorithms, IP addressing, and network security.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 20 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Intermediate</span>
+                    </div>
+                    <a href="cn.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="core">
+                    <div class="pastel-badge-icon icon-pink">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3>Computer Organization</h3>
+                    <p>Test CPU design, instruction set architecture, cache memory, registers, and pipeline execution.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 20 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Advanced</span>
+                    </div>
+                    <a href="coa.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEVELOPMENT & CLOUD -->
+        <div class="cat-section" data-cat="dev" style="margin-top: 50px;">
+            <h2 class="features-header" style="text-align: left; margin-bottom: 25px; font-size: 24px;">
+                <i class="fa-solid fa-cloud-arrow-up" style="color: var(--secondary);"></i> Development & Cloud
+            </h2>
+
+            <div class="features-grid-6">
+                <div class="feature-card-clean professional-card" data-cat="dev">
+                    <div class="pastel-badge-icon icon-blue">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Test your knowledge of HTML5, CSS3, JavaScript ES6+, DOM manipulation, and Web APIs.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 25 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> All Levels</span>
+                    </div>
+                    <a href="web.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="dev">
+                    <div class="pastel-badge-icon icon-green">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Computing</h3>
+                    <p>Test cloud deployment models, AWS/Azure/GCP fundamentals, virtualization, and serverless architecture.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 20 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Intermediate</span>
+                    </div>
+                    <a href="cloud.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EMERGING TECHNOLOGIES -->
+        <div class="cat-section" data-cat="emerging" style="margin-top: 50px;">
+            <h2 class="features-header" style="text-align: left; margin-bottom: 25px; font-size: 24px;">
+                <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--violet-accent);"></i> Emerging Technologies
+            </h2>
+
+            <div class="features-grid-6">
+                <div class="feature-card-clean professional-card" data-cat="emerging">
+                    <div class="pastel-badge-icon icon-purple">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Test machine learning algorithms, supervised vs unsupervised models, linear algebra, and AI ethics.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 25 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Advanced</span>
+                    </div>
+                    <a href="aiml.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="feature-card-clean professional-card" data-cat="emerging">
+                    <div class="pastel-badge-icon icon-red">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Cyber Security</h3>
+                    <p>Test network security, cryptography basics, ethical hacking concepts, and threat detection.</p>
+                    <div class="assessment-meta-row">
+                        <span class="assessment-meta-tag"><i class="fa-regular fa-clock"></i> 20 Mins</span>
+                        <span class="assessment-meta-tag"><i class="fa-solid fa-layer-group"></i> Intermediate</span>
+                    </div>
+                    <a href="cybersecurity.html" class="learn-btn" style="margin-top: 18px; width: 100%;">
+                        Start Assessment <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img" style="background: white; padding: 4px; border-radius: 8px;">
+                    <span style="color: white;">SkillBridge</span>
+                </a>
+                <p>Empowering tech learners and computer science students with structured skill assessments, targeted learning paths, and placement guidance.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="subject.html">Assessments</a></li>
+                    <li><a href="roadmap.html">Roadmaps</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Assessment Domains</h4>
+                <ul>
+                    <li><a href="programming.html">Programming</a></li>
+                    <li><a href="dsa.html">Data Structures</a></li>
+                    <li><a href="dbms-assessment.html">DBMS Test</a></li>
+                    <li><a href="web.html">Web Development</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="track.html">Progress Tracker</a></li>
+                    <li><a href="internship.html">Internship Portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterCategory(cat, el) {
+            document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
+            el.classList.add('active');
+
+            const catSections = document.querySelectorAll('.cat-section');
+            catSections.forEach(sec => {
+                if (cat === 'all' || sec.dataset.cat === cat) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI / ML Assessment - SkillBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>SKILLBRIDGE</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assessment.html">Assessment</a>
+        </div>
+    </nav>
+
+    <div class="test-container">
+
+        <div class="test-header">
+            <h1>AI / ML Assessment</h1>
+            <p>Question <span id="question-number">1</span> / 20</p>
+        </div>
+
+        <div class="test-card">
+
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <div class="test-buttons">
+                <button id="next-btn">Next →</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const questionBank = [
+
+            {
+                question: "What does AI stand for?",
+                options: [
+                    "Artificial Intelligence",
+                    "Automated Internet",
+                    "Advanced Information",
+                    "Artificial Internet"
+                ],
+                answer: "Artificial Intelligence"
+            },
+
+            {
+                question: "What does ML stand for?",
+                options: [
+                    "Machine Learning",
+                    "Multiple Logic",
+                    "Manual Learning",
+                    "Machine Logic"
+                ],
+                answer: "Machine Learning"
+            },
+
+            {
+                question: "Which of the following is a type of machine learning?",
+                options: [
+                    "Supervised Learning",
+                    "Structured Learning",
+                    "Sequential Coding",
+                    "Manual Learning"
+                ],
+                answer: "Supervised Learning"
+            },
+
+            {
+                question: "Which learning uses labeled data?",
+                options: [
+                    "Supervised Learning",
+                    "Unsupervised Learning",
+                    "Reinforcement Learning",
+                    "Random Learning"
+                ],
+                answer: "Supervised Learning"
+            },
+
+            {
+                question: "Which learning works with unlabeled data?",
+                options: [
+                    "Unsupervised Learning",
+                    "Supervised Learning",
+                    "Reinforcement Learning",
+                    "Guided Learning"
+                ],
+                answer: "Unsupervised Learning"
+            },
+
+            {
+                question: "Which algorithm is commonly used for classification?",
+                options: [
+                    "Decision Tree",
+                    "Linear Search",
+                    "Binary Search",
+                    "Bubble Sort"
+                ],
+                answer: "Decision Tree"
+            },
+
+            {
+                question: "What is a dataset?",
+                options: [
+                    "A collection of data",
+                    "A programming language",
+                    "A computer network",
+                    "A database software"
+                ],
+                answer: "A collection of data"
+            },
+
+            {
+                question: "What is training data?",
+                options: [
+                    "Data used to train a machine learning model",
+                    "Data used only for storage",
+                    "Data used to create websites",
+                    "Data used for networking"
+                ],
+                answer: "Data used to train a machine learning model"
+            },
+
+            {
+                question: "What is a feature in machine learning?",
+                options: [
+                    "An input variable",
+                    "A programming error",
+                    "A database table",
+                    "A network device"
+                ],
+                answer: "An input variable"
+            },
+
+            {
+                question: "What is the output predicted by a model called?",
+                options: [
+                    "Prediction",
+                    "Feature",
+                    "Dataset",
+                    "Parameter"
+                ],
+                answer: "Prediction"
+            },
+
+            {
+                question: "Which algorithm is used for predicting continuous values?",
+                options: [
+                    "Linear Regression",
+                    "Decision Tree Classification",
+                    "K-Means",
+                    "Naive Bayes"
+                ],
+                answer: "Linear Regression"
+            },
+
+            {
+                question: "Which algorithm is commonly used for clustering?",
+                options: [
+                    "K-Means",
+                    "Linear Regression",
+                    "Logistic Regression",
+                    "Decision Tree"
+                ],
+                answer: "K-Means"
+            },
+
+            {
+                question: "What is classification?",
+                options: [
+                    "Predicting categories",
+                    "Sorting numbers",
+                    "Storing data",
+                    "Compressing files"
+                ],
+                answer: "Predicting categories"
+            },
+
+            {
+                question: "What is regression?",
+                options: [
+                    "Predicting numerical values",
+                    "Predicting categories only",
+                    "Grouping files",
+                    "Encrypting data"
+                ],
+                answer: "Predicting numerical values"
+            },
+
+            {
+                question: "What is overfitting?",
+                options: [
+                    "When a model learns the training data too closely",
+                    "When a model has no data",
+                    "When a model is deleted",
+                    "When data is encrypted"
+                ],
+                answer: "When a model learns the training data too closely"
+            },
+
+            {
+                question: "What is underfitting?",
+                options: [
+                    "When a model is too simple to learn the data properly",
+                    "When a model memorizes all data",
+                    "When data is missing",
+                    "When a computer shuts down"
+                ],
+                answer: "When a model is too simple to learn the data properly"
+            },
+
+            {
+                question: "Which language is widely used in AI and ML?",
+                options: [
+                    "Python",
+                    "HTML",
+                    "CSS",
+                    "SQL"
+                ],
+                answer: "Python"
+            },
+
+            {
+                question: "What is a neural network inspired by?",
+                options: [
+                    "The human brain",
+                    "Computer memory",
+                    "The internet",
+                    "A database"
+                ],
+                answer: "The human brain"
+            },
+
+            {
+                question: "What is deep learning?",
+                options: [
+                    "A subset of machine learning using neural networks with multiple layers",
+                    "A type of database",
+                    "A programming language",
+                    "A networking protocol"
+                ],
+                answer: "A subset of machine learning using neural networks with multiple layers"
+            },
+
+            {
+                question: "What is the purpose of a test dataset?",
+                options: [
+                    "To evaluate model performance",
+                    "To train the model only",
+                    "To store passwords",
+                    "To create a website"
+                ],
+                answer: "To evaluate model performance"
+            },
+
+            {
+                question: "What is reinforcement learning based on?",
+                options: [
+                    "Rewards and penalties",
+                    "Only labeled data",
+                    "Only images",
+                    "Database queries"
+                ],
+                answer: "Rewards and penalties"
+            },
+
+            {
+                question: "What is an epoch in machine learning?",
+                options: [
+                    "One complete pass through the training data",
+                    "A type of dataset",
+                    "A programming language",
+                    "A database table"
+                ],
+                answer: "One complete pass through the training data"
+            },
+
+            {
+                question: "What is model accuracy?",
+                options: [
+                    "The proportion of correct predictions",
+                    "The size of the dataset",
+                    "The training time",
+                    "The number of features"
+                ],
+                answer: "The proportion of correct predictions"
+            },
+
+            {
+                question: "Which technique helps reduce overfitting?",
+                options: [
+                    "Regularization",
+                    "Increasing errors",
+                    "Removing all data",
+                    "Ignoring validation"
+                ],
+                answer: "Regularization"
+            },
+
+            {
+                question: "What is natural language processing?",
+                options: [
+                    "Processing and understanding human language",
+                    "Processing computer hardware",
+                    "Managing databases",
+                    "Designing networks"
+                ],
+                answer: "Processing and understanding human language"
+            },
+
+            {
+                question: "Which is an example of AI?",
+                options: [
+                    "Voice Assistant",
+                    "Calculator",
+                    "Keyboard",
+                    "USB Cable"
+                ],
+                answer: "Voice Assistant"
+            },
+
+            {
+                question: "What is computer vision?",
+                options: [
+                    "Enabling computers to understand images and videos",
+                    "Designing computer screens",
+                    "Repairing monitors",
+                    "Managing computer memory"
+                ],
+                answer: "Enabling computers to understand images and videos"
+            },
+
+            {
+                question: "What is a model in machine learning?",
+                options: [
+                    "A learned representation used to make predictions",
+                    "A computer monitor",
+                    "A database",
+                    "A programming editor"
+                ],
+                answer: "A learned representation used to make predictions"
+            },
+
+            {
+                question: "What is training in machine learning?",
+                options: [
+                    "Learning patterns from data",
+                    "Installing software",
+                    "Creating a network",
+                    "Deleting data"
+                ],
+                answer: "Learning patterns from data"
+            },
+
+            {
+                question: "Which library is commonly used for machine learning in Python?",
+                options: [
+                    "Scikit-learn",
+                    "HTML",
+                    "Bootstrap",
+                    "JQuery"
+                ],
+                answer: "Scikit-learn"
+            }
+
+        ];
+
+        function shuffle(array) {
+
+            for (let i = array.length - 1; i > 0; i--) {
+
+                let j = Math.floor(Math.random() * (i + 1));
+
+                [array[i], array[j]] = [array[j], array[i]];
+
+            }
+
+            return array;
+        }
+
+        let selectedQuestions =
+            shuffle([...questionBank]).slice(0, 20);
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = "";
+
+        const questionElement =
+            document.getElementById("question");
+
+        const optionsElement =
+            document.getElementById("options");
+
+        const questionNumber =
+            document.getElementById("question-number");
+
+        const nextButton =
+            document.getElementById("next-btn");
+
+
+        function showQuestion() {
+
+            let q = selectedQuestions[currentQuestion];
+
+            questionElement.innerText = q.question;
+
+            questionNumber.innerText = currentQuestion + 1;
+
+            optionsElement.innerHTML = "";
+
+            selectedAnswer = "";
+
+            let shuffledOptions =
+                shuffle([...q.options]);
+
+            shuffledOptions.forEach(function(option) {
+
+                let label =
+                    document.createElement("label");
+
+                label.className = "answer-option";
+
+                label.innerHTML = `
+                    <input type="radio" name="answer">
+                    <span class="option-letter"></span>
+                    <span>${option}</span>
+                `;
+
+                label.querySelector("input").value = option;
+
+                label.addEventListener("click", function() {
+
+                    document
+                        .querySelectorAll(".answer-option")
+                        .forEach(function(item) {
+                            item.classList.remove("selected");
+                        });
+
+                    label.classList.add("selected");
+
+                    selectedAnswer = option;
+
+                });
+
+                optionsElement.appendChild(label);
+
+            });
+
+            let optionLetters =
+                document.querySelectorAll(".option-letter");
+
+            optionLetters.forEach(function(letter, index) {
+
+                letter.innerText =
+                    String.fromCharCode(65 + index);
+
+            });
+
+            if (currentQuestion === 19) {
+
+                nextButton.innerText =
+                    "Submit Assessment";
+
+            } else {
+
+                nextButton.innerText =
+                    "Next →";
+
+            }
+
+        }
+
+
+        nextButton.addEventListener("click", function() {
+
+            if (selectedAnswer === "") {
+
+                alert("Please select an answer.");
+
+                return;
+
+            }
+
+            let correctAnswer =
+                selectedQuestions[currentQuestion].answer;
+
+            if (selectedAnswer === correctAnswer) {
+
+                score++;
+
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < 20) {
+
+                showQuestion();
+
+            } else {
+
+                localStorage.setItem("aimlScore", score);
+
+                window.location.href = "result.html";
+
+            }
+
+        });
+
+
+        showQuestion();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Opportunities - SkillBridge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="subject.html">Assessments</a>
+            <a href="roadmap.html">Roadmaps</a>
+            <a href="track.html">Progress</a>
+            <a href="internship.html" class="active">Internships</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="nav-btn-secondary">Log In</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- INTERNSHIP PORTAL SECTION -->
+    <section class="features-section" style="background: var(--bg-main);">
+
+        <div class="features-header animate-fade-in">
+            <span class="badge-tag"><i class="fa-solid fa-briefcase"></i> CAREER LAUNCHPAD</span>
+            <h2>Placement & Internship Opportunities</h2>
+            <p>Explore verified corporate placement openings from hiring partners matched directly to your skill assessment scores.</p>
+        </div>
+
+        <!-- READINESS CARD BANNER WITH STUDENT SUCCESS ARTWORK -->
+        <div class="student-cta-box animate-pulse" style="margin-bottom: 50px;">
+            <div class="student-cta-content">
+                <span class="badge-tag" style="margin-bottom: 8px;">PLACEMENT MATCHING</span>
+                <h2>Placement Readiness: <span style="background: #dcfce7; color: #15803d; padding: 4px 14px; border-radius: var(--radius-full); font-weight: 800;">78% Ready</span></h2>
+                <p>You qualify for 14 active software engineering and web developer campus placement drives!</p>
+                <a href="roadmap.html" class="btn-hero-primary">
+                    Boost Readiness Score <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="student-cta-graphic">
+                <img src="student-success.jpg" alt="Student Celebrating Job Offer">
+            </div>
+        </div>
+
+        <div class="features-header" style="margin-bottom: 30px;">
+            <span class="badge-tag">PARTNER RECRUITMENT</span>
+            <h2>Featured Corporate Openings</h2>
+        </div>
+
+        <!-- INTERNSHIP GRID -->
+        <div class="features-grid-6">
+
+            <div class="company-prep-card animate-float-slow">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: #ea433515; color: #ea4335; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-brands fa-google"></i>
+                    </div>
+                    <span class="status completed-status"><i class="fa-solid fa-bolt"></i> 94% Skill Match</span>
+                </div>
+                <h3>Software Engineering Intern</h3>
+                <p style="font-size: 13px; margin-bottom: 14px;">Google • Mountain View / Remote</p>
+                <p>Build scalable backend microservices, write clean unit tests, and work with high-throughput APIs.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <span class="stipend-tag">$8,500 / month</span>
+                    <a href="#" class="btn-hero-primary" style="padding: 8px 18px; font-size: 13px;" onclick="alert('Application submitted successfully to Google Recruitment Portal!')">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="company-prep-card animate-float-slow" style="animation-delay: 0.4s;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: #ff990015; color: #ff9900; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-brands fa-amazon"></i>
+                    </div>
+                    <span class="status completed-status"><i class="fa-solid fa-bolt"></i> 89% Skill Match</span>
+                </div>
+                <h3>Full Stack Web Developer</h3>
+                <p style="font-size: 13px; margin-bottom: 14px;">Amazon Web Services • Seattle, WA</p>
+                <p>Design modern responsive frontends with React, TypeScript, Node.js, and AWS cloud endpoints.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <span class="stipend-tag">$8,000 / month</span>
+                    <a href="#" class="btn-hero-primary" style="padding: 8px 18px; font-size: 13px;" onclick="alert('Application submitted successfully to Amazon Recruitment Portal!')">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="company-prep-card animate-float-slow" style="animation-delay: 0.8s;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: #00a4ef15; color: #00a4ef; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-brands fa-microsoft"></i>
+                    </div>
+                    <span class="status progress-status">78% Skill Match</span>
+                </div>
+                <h3>Database Systems Intern</h3>
+                <p style="font-size: 13px; margin-bottom: 14px;">Microsoft Azure • Redmond, WA</p>
+                <p>Manage SQL database schemas, optimize query indexing, transaction processing, and data validation.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <span class="stipend-tag">$7,800 / month</span>
+                    <a href="#" class="btn-hero-primary" style="padding: 8px 18px; font-size: 13px;" onclick="alert('Application submitted successfully to Microsoft Azure Portal!')">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="company-prep-card animate-float-slow" style="animation-delay: 1.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: #0a66c215; color: #0a66c2; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <span class="status progress-status">72% Skill Match</span>
+                </div>
+                <h3>Cloud Engineering Intern</h3>
+                <p style="font-size: 13px; margin-bottom: 14px;">LinkedIn • Sunnyvale, CA</p>
+                <p>Gain hands-on experience with Linux administration, Docker containers, Kubernetes, and Cloud monitoring.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <span class="stipend-tag">$7,500 / month</span>
+                    <a href="#" class="btn-hero-primary" style="padding: 8px 18px; font-size: 13px;" onclick="alert('Application submitted successfully to LinkedIn Portal!')">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="company-prep-card animate-float-slow" style="animation-delay: 1.6s;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: #0666fe15; color: #0666fe; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-brands fa-meta"></i>
+                    </div>
+                    <span class="status progress-status">70% Skill Match</span>
+                </div>
+                <h3>AI / Machine Learning Engineer</h3>
+                <p style="font-size: 13px; margin-bottom: 14px;">Meta AI Research • Menlo Park, CA</p>
+                <p>Preprocess datasets, build baseline ML classification models using PyTorch, Python & Scikit-Learn.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <span class="stipend-tag">$8,200 / month</span>
+                    <a href="#" class="btn-hero-primary" style="padding: 8px 18px; font-size: 13px;" onclick="alert('Application submitted successfully to Meta AI Portal!')">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="company-prep-card animate-float-slow" style="animation-delay: 2s;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: #00000015; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-brands fa-apple"></i>
+                    </div>
+                    <span class="status pending-status">Unlocks at 85% score</span>
+                </div>
+                <h3>Cyber Security Analyst</h3>
+                <p style="font-size: 13px; margin-bottom: 14px;">Apple Security • Cupertino, CA</p>
+                <p>Perform vulnerability assessments, audit security logs, and assist with infrastructure threat detection.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <span class="stipend-tag">$8,800 / month</span>
+                    <a href="cybersecurity.html" class="btn-hero-outline" style="padding: 8px 18px; font-size: 13px;">Unlock Test</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img" style="background: white; padding: 4px; border-radius: 8px;">
+                    <span style="color: white;">SkillBridge</span>
+                </a>
+                <p>Empowering tech learners and computer science students with structured skill assessments, targeted learning paths, and placement guidance.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="subject.html">Assessments</a></li>
+                    <li><a href="roadmap.html">Roadmaps</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Skill Domains</h4>
+                <ul>
+                    <li><a href="dsa.html">Data Structures</a></li>
+                    <li><a href="dbms.html">Database Systems</a></li>
+                    <li><a href="web.html">Web Development</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="track.html">Progress Tracker</a></li>
+                    <li><a href="internship.html">Internship Portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trees | SkillBridge</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: white;
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        .hero span {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            color: #1e3a8a;
+            font-size: 42px;
+            margin: 12px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .tree {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .node {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #1e3a8a;
+            color: white;
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        .tree-level {
+            margin: 5px;
+        }
+
+        .points {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .point {
+            background: #f4f7fb;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .point h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        .question {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f4f7fb;
+            border-radius: 10px;
+        }
+
+        .question button {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            margin: 8px 5px 0 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .question button:hover {
+            background: #162d6b;
+        }
+
+        #message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .complete-btn {
+            display: block;
+            margin: 30px auto;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background: #162d6b;
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .points {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SkillBridge</h2>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="dsa.html">DSA</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <span>DSA • TREES</span>
+
+    <h1>Trees</h1>
+
+    <p>
+        Learn the basics of Tree data structure with simple examples.
+    </p>
+
+</section>
+
+
+<div class="container">
+
+
+    <div class="card">
+
+        <h2>What is a Tree?</h2>
+
+        <p>
+            A Tree is a non-linear data structure that represents
+            data in a hierarchical form.
+        </p>
+
+        <p>
+            A Tree consists of nodes connected by edges.
+        </p>
+
+        <div class="tree">
+
+            <div class="tree-level">
+                <div class="node">10</div>
+            </div>
+
+            <div class="tree-level">
+                <div class="node">20</div>
+                <div class="node">30</div>
+            </div>
+
+            <div class="tree-level">
+                <div class="node">40</div>
+                <div class="node">50</div>
+                <div class="node">60</div>
+                <div class="node">70</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Important Tree Terms</h2>
+
+        <div class="points">
+
+            <div class="point">
+
+                <h3>Root</h3>
+
+                <p>
+                    The topmost node of a tree.
+                </p>
+
+            </div>
+
+
+            <div class="point">
+
+                <h3>Node</h3>
+
+                <p>
+                    An element that stores data.
+                </p>
+
+            </div>
+
+
+            <div class="point">
+
+                <h3>Edge</h3>
+
+                <p>
+                    Connection between two nodes.
+                </p>
+
+            </div>
+
+
+            <div class="point">
+
+                <h3>Leaf</h3>
+
+                <p>
+                    A node that has no children.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Binary Tree</h2>
+
+        <p>
+            A Binary Tree is a tree in which each node can have
+            at most two children.
+        </p>
+
+        <p>
+            These children are called the
+            <strong>left child</strong> and
+            <strong>right child</strong>.
+        </p>
+
+        <div class="tree">
+
+            <div class="tree-level">
+                <div class="node">10</div>
+            </div>
+
+            <div class="tree-level">
+                <div class="node">20</div>
+                <div class="node">30</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Tree in Java</h2>
+
+<pre>
+class Node {
+
+    int data;
+
+    Node left;
+    Node right;
+
+    Node(int data) {
+
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
+</pre>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Important Points</h2>
+
+        <div class="points">
+
+            <div class="point">
+
+                <h3>Root</h3>
+
+                <p>
+                    First or topmost node.
+                </p>
+
+            </div>
+
+
+            <div class="point">
+
+                <h3>Child</h3>
+
+                <p>
+                    Node connected below another node.
+                </p>
+
+            </div>
+
+
+            <div class="point">
+
+                <h3>Parent</h3>
+
+                <p>
+                    Node that has one or more children.
+                </p>
+
+            </div>
+
+
+            <div class="point">
+
+                <h3>Leaf</h3>
+
+                <p>
+                    Node without children.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Practice Questions</h2>
+
+
+        <div class="question">
+
+            <p>
+                <strong>
+                    1. Which node is at the top of a Tree?
+                </strong>
+            </p>
+
+            <button onclick="checkAnswer(this, false)">
+                A. Leaf
+            </button>
+
+            <button onclick="checkAnswer(this, true)">
+                B. Root
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                C. Child
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                D. Edge
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <p>
+                <strong>
+                    2. How many children can a node have at most in a Binary Tree?
+                </strong>
+            </p>
+
+            <button onclick="checkSecond(this, false)">
+                A. 1
+            </button>
+
+            <button onclick="checkSecond(this, true)">
+                B. 2
+            </button>
+
+            <button onclick="checkSecond(this, false)">
+                C. 3
+            </button>
+
+            <button onclick="checkSecond(this, false)">
+                D. 4
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <button class="complete-btn" onclick="completeTopic()">
+        Mark Topic as Completed
+    </button>
+
+    <p id="message"></p>
+
+</div>
+
+
+<script>
+
+function checkAnswer(button, correct) {
+
+    if (correct) {
+
+        button.style.background = "green";
+
+        alert("Correct! The topmost node of a Tree is called the Root.");
+
+    } else {
+
+        button.style.background = "red";
+
+        alert("Wrong answer. Try again!");
+
+    }
+
+}
+
+
+function checkSecond(button, correct) {
+
+    if (correct) {
+
+        button.style.background = "green";
+
+        alert("Correct! A Binary Tree node can have at most 2 children.");
+
+    } else {
+
+        button.style.background = "red";
+
+        alert("Wrong answer. Try again!");
+
+    }
+
+}
+function completeTopic() {
+
+    localStorage.setItem("treesCompleted", "true");
+
+    alert(localStorage.getItem("treesCompleted"));
+
+    document.getElementById("message").innerText =
+        "🎉 Trees completed! Your progress has been saved.";
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

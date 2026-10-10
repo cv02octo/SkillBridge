@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cloud Computing Assessment - SkillBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>SKILLBRIDGE</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assessment.html">Assessment</a>
+        </div>
+    </nav>
+
+    <div class="test-container">
+
+        <div class="test-header">
+
+            <h1>Cloud Computing Assessment</h1>
+
+            <p>
+                Question <span id="question-number">1</span> / 20
+            </p>
+
+        </div>
+
+        <div class="test-card">
+
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <div class="test-buttons">
+                <button id="next-btn">Next →</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const questionBank = [
+
+            {
+                question: "What is cloud computing?",
+                options: [
+                    "Delivery of computing services over the internet",
+                    "A type of computer hardware",
+                    "A programming language",
+                    "A database only"
+                ],
+                answer: "Delivery of computing services over the internet"
+            },
+
+            {
+                question: "Which of the following is a cloud service provider?",
+                options: [
+                    "Amazon Web Services",
+                    "Microsoft Word",
+                    "MySQL",
+                    "HTML"
+                ],
+                answer: "Amazon Web Services"
+            },
+
+            {
+                question: "What does AWS stand for?",
+                options: [
+                    "Amazon Web Services",
+                    "Advanced Web System",
+                    "Amazon Web System",
+                    "Application Web Services"
+                ],
+                answer: "Amazon Web Services"
+            },
+
+            {
+                question: "Which cloud model provides services to the general public?",
+                options: [
+                    "Public Cloud",
+                    "Private Cloud",
+                    "Hybrid Cloud",
+                    "Community Cloud"
+                ],
+                answer: "Public Cloud"
+            },
+
+            {
+                question: "Which cloud model is dedicated to a single organization?",
+                options: [
+                    "Private Cloud",
+                    "Public Cloud",
+                    "Hybrid Cloud",
+                    "Community Cloud"
+                ],
+                answer: "Private Cloud"
+            },
+
+            {
+                question: "What is a hybrid cloud?",
+                options: [
+                    "Combination of public and private clouds",
+                    "Only a private cloud",
+                    "Only a public cloud",
+                    "A cloud without internet"
+                ],
+                answer: "Combination of public and private clouds"
+            },
+
+            {
+                question: "What does IaaS stand for?",
+                options: [
+                    "Infrastructure as a Service",
+                    "Internet as a Service",
+                    "Information as a Service",
+                    "Infrastructure and Application Service"
+                ],
+                answer: "Infrastructure as a Service"
+            },
+
+            {
+                question: "Which is an example of IaaS?",
+                options: [
+                    "Amazon EC2",
+                    "Gmail",
+                    "Google Docs",
+                    "Microsoft Word"
+                ],
+                answer: "Amazon EC2"
+            },
+
+            {
+                question: "What does PaaS stand for?",
+                options: [
+                    "Platform as a Service",
+                    "Program as a Service",
+                    "Processing as a Service",
+                    "Platform and Application System"
+                ],
+                answer: "Platform as a Service"
+            },
+
+            {
+                question: "Which is an example of PaaS?",
+                options: [
+                    "Google App Engine",
+                    "Amazon EC2",
+                    "Google Drive",
+                    "Dropbox"
+                ],
+                answer: "Google App Engine"
+            },
+
+            {
+                question: "What does SaaS stand for?",
+                options: [
+                    "Software as a Service",
+                    "System as a Service",
+                    "Storage as a Service",
+                    "Software and System"
+                ],
+                answer: "Software as a Service"
+            },
+
+            {
+                question: "Which is an example of SaaS?",
+                options: [
+                    "Gmail",
+                    "Amazon EC2",
+                    "Virtual Machine",
+                    "Physical Server"
+                ],
+                answer: "Gmail"
+            },
+
+            {
+                question: "What is virtualization?",
+                options: [
+                    "Creating virtual versions of computing resources",
+                    "Deleting physical servers",
+                    "Creating websites",
+                    "Encrypting emails"
+                ],
+                answer: "Creating virtual versions of computing resources"
+            },
+
+            {
+                question: "What is a virtual machine?",
+                options: [
+                    "A software-based computer running on a physical machine",
+                    "A physical keyboard",
+                    "A network cable",
+                    "A database"
+                ],
+                answer: "A software-based computer running on a physical machine"
+            },
+
+            {
+                question: "What is scalability?",
+                options: [
+                    "Ability to increase or decrease resources as needed",
+                    "Deleting cloud resources",
+                    "Encrypting files",
+                    "Creating passwords"
+                ],
+                answer: "Ability to increase or decrease resources as needed"
+            },
+
+            {
+                question: "What is elasticity in cloud computing?",
+                options: [
+                    "Automatic adjustment of resources according to demand",
+                    "Permanent storage of files",
+                    "Manual installation of software",
+                    "Network encryption"
+                ],
+                answer: "Automatic adjustment of resources according to demand"
+            },
+
+            {
+                question: "What is cloud storage?",
+                options: [
+                    "Storing data on remote servers accessed through the internet",
+                    "Storing data only on a local hard disk",
+                    "Storing data in RAM",
+                    "Storing data in CPU registers"
+                ],
+                answer: "Storing data on remote servers accessed through the internet"
+            },
+
+            {
+                question: "Which of the following is a cloud storage service?",
+                options: [
+                    "Google Drive",
+                    "Notepad",
+                    "Calculator",
+                    "Paint"
+                ],
+                answer: "Google Drive"
+            },
+
+            {
+                question: "What is serverless computing?",
+                options: [
+                    "Running applications without managing servers directly",
+                    "Using no servers at all",
+                    "Using only physical computers",
+                    "Running applications without internet"
+                ],
+                answer: "Running applications without managing servers directly"
+            },
+
+            {
+                question: "What is a cloud region?",
+                options: [
+                    "A geographic area containing cloud infrastructure",
+                    "A type of software",
+                    "A network cable",
+                    "A database table"
+                ],
+                answer: "A geographic area containing cloud infrastructure"
+            },
+
+            {
+                question: "What is a cloud availability zone?",
+                options: [
+                    "An isolated location within a cloud region",
+                    "A programming language",
+                    "A type of firewall",
+                    "A storage device"
+                ],
+                answer: "An isolated location within a cloud region"
+            },
+
+            {
+                question: "Which cloud provider offers Azure?",
+                options: [
+                    "Microsoft",
+                    "Amazon",
+                    "Google",
+                    "IBM"
+                ],
+                answer: "Microsoft"
+            },
+
+            {
+                question: "Which cloud provider offers Google Cloud?",
+                options: [
+                    "Google",
+                    "Microsoft",
+                    "Amazon",
+                    "Oracle"
+                ],
+                answer: "Google"
+            },
+
+            {
+                question: "Which cloud provider offers AWS?",
+                options: [
+                    "Amazon",
+                    "Microsoft",
+                    "Google",
+                    "IBM"
+                ],
+                answer: "Amazon"
+            },
+
+            {
+                question: "What is cloud security?",
+                options: [
+                    "Protection of cloud-based systems and data",
+                    "Increasing internet speed",
+                    "Creating websites",
+                    "Managing computer hardware"
+                ],
+                answer: "Protection of cloud-based systems and data"
+            },
+
+            {
+                question: "What is pay-as-you-go pricing?",
+                options: [
+                    "Paying according to the resources used",
+                    "Paying a fixed amount forever",
+                    "Using cloud services for free",
+                    "Paying only once"
+                ],
+                answer: "Paying according to the resources used"
+            },
+
+            {
+                question: "What is a container in cloud computing?",
+                options: [
+                    "A lightweight package containing an application and its dependencies",
+                    "A physical storage box",
+                    "A database table",
+                    "A network cable"
+                ],
+                answer: "A lightweight package containing an application and its dependencies"
+            },
+
+            {
+                question: "Which technology is commonly used to manage containers?",
+                options: [
+                    "Docker",
+                    "HTML",
+                    "CSS",
+                    "MySQL"
+                ],
+                answer: "Docker"
+            },
+
+            {
+                question: "What is cloud migration?",
+                options: [
+                    "Moving applications or data to the cloud",
+                    "Deleting cloud accounts",
+                    "Creating a local network",
+                    "Installing a printer"
+                ],
+                answer: "Moving applications or data to the cloud"
+            },
+
+            {
+                question: "Which is a major benefit of cloud computing?",
+                options: [
+                    "On-demand access to computing resources",
+                    "No need for security",
+                    "No internet requirement",
+                    "Unlimited free storage"
+                ],
+                answer: "On-demand access to computing resources"
+            }
+
+        ];
+
+
+        function shuffle(array) {
+
+            for (let i = array.length - 1; i > 0; i--) {
+
+                let j =
+                    Math.floor(Math.random() * (i + 1));
+
+                [array[i], array[j]] =
+                    [array[j], array[i]];
+
+            }
+
+            return array;
+        }
+
+
+        let selectedQuestions =
+            shuffle([...questionBank]).slice(0, 20);
+
+        let currentQuestion = 0;
+
+        let score = 0;
+
+        let selectedAnswer = "";
+
+
+        function loadQuestion() {
+
+            let q =
+                selectedQuestions[currentQuestion];
+
+            document.getElementById("question-number").innerText =
+                currentQuestion + 1;
+
+            document.getElementById("question").innerText =
+                q.question;
+
+            let optionsContainer =
+                document.getElementById("options");
+
+            optionsContainer.innerHTML = "";
+
+            selectedAnswer = "";
+
+            let shuffledOptions =
+                shuffle([...q.options]);
+
+
+            shuffledOptions.forEach((option, index) => {
+
+                let label =
+                    document.createElement("label");
+
+                label.className =
+                    "answer-option";
+
+
+                let input =
+                    document.createElement("input");
+
+                input.type = "radio";
+
+                input.name = "answer";
+
+                input.value = option;
+
+
+                let letter =
+                    document.createElement("span");
+
+                letter.className =
+                    "option-letter";
+
+                letter.innerText =
+                    String.fromCharCode(65 + index);
+
+
+                let text =
+                    document.createElement("span");
+
+                text.innerText = option;
+
+
+                label.appendChild(input);
+
+                label.appendChild(letter);
+
+                label.appendChild(text);
+
+
+                label.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".answer-option")
+                        .forEach(option =>
+                            option.classList.remove("selected")
+                        );
+
+                    label.classList.add("selected");
+
+                    selectedAnswer = option;
+
+                });
+
+
+                optionsContainer.appendChild(label);
+
+            });
+
+        }
+
+
+        document
+            .getElementById("next-btn")
+            .addEventListener("click", function () {
+
+                if (selectedAnswer === "") {
+
+                    alert("Please select an answer.");
+
+                    return;
+
+                }
+
+
+                if (
+                    selectedAnswer ===
+                    selectedQuestions[currentQuestion].answer
+                ) {
+
+                    score++;
+
+                }
+
+
+                if (currentQuestion < 19) {
+
+                    currentQuestion++;
+
+                    loadQuestion();
+
+                } else {
+
+                    localStorage.setItem(
+                        "cloudScore",
+                        score
+                    );
+
+                    window.location.href =
+                        "result.html";
+
+                }
+
+            });
+
+
+        loadQuestion();
+
+    </script>
+
+</body>
+
+</html>

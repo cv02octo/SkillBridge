@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings - SkillBridge</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero small {
+            color: #1e3a8a;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #1e3a8a;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #555;
+            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .example {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .example h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        .points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .point {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #1e3a8a;
+        }
+
+        .point h3 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .quiz {
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question h3 {
+            margin-bottom: 15px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: white;
+            color: #222;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            border-color: #1e3a8a;
+        }
+
+        .answer-message {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        .complete-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .complete-btn {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background: #162d6b;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #047857;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .points {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>SkillBridge</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dsa.html">DSA</a>
+            <a href="roadmap.html">Roadmap</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <small>DSA • STRINGS</small>
+
+        <h1>Strings</h1>
+
+        <p>
+            Learn how strings work in Java, how to access characters,
+            traverse strings and perform common string operations.
+        </p>
+    </section>
+
+    <div class="container">
+
+        <!-- What is String -->
+        <div class="card">
+            <h2>What is a String?</h2>
+
+            <p>
+                A String is a sequence of characters. In Java, String is
+                a class used to store and work with text.
+            </p>
+
+            <div class="example">
+                <h3>Example</h3>
+
+                <p>
+                    <b>"HELLO"</b> contains 5 characters:
+                    H, E, L, L, O
+                </p>
+            </div>
+        </div>
+
+        <!-- Java String -->
+        <div class="card">
+            <h2>String in Java</h2>
+
+            <p>
+                We can create a String using double quotes.
+            </p>
+
+            <div class="example">
+                <pre>
+String name = "SkillBridge";
+
+System.out.println(name);</pre>
+
+                <p style="margin-top: 15px;">
+                    <b>Output:</b> SkillBridge
+                </p>
+            </div>
+        </div>
+
+        <!-- Character Access -->
+        <div class="card">
+            <h2>Access Characters</h2>
+
+            <p>
+                We can use <b>charAt()</b> to access a particular
+                character from a String.
+            </p>
+
+            <div class="example">
+                <pre>
+String str = "JAVA";
+
+System.out.println(str.charAt(0));
+System.out.println(str.charAt(2));</pre>
+
+                <p style="margin-top: 15px;">
+                    <b>Output:</b><br>
+                    J<br>
+                    V
+                </p>
+            </div>
+        </div>
+
+        <!-- Traversal -->
+        <div class="card">
+            <h2>String Traversal</h2>
+
+            <p>
+                We can use a loop to visit every character of a String.
+            </p>
+
+            <div class="example">
+                <pre>
+String str = "JAVA";
+
+for(int i = 0; i &lt; str.length(); i++) {
+    System.out.println(str.charAt(i));
+}</pre>
+
+                <p style="margin-top: 15px;">
+                    <b>Output:</b><br>
+                    J<br>
+                    A<br>
+                    V<br>
+                    A
+                </p>
+            </div>
+        </div>
+
+        <!-- Important Points -->
+        <div class="card">
+            <h2>Important Points</h2>
+
+            <div class="points">
+
+                <div class="point">
+                    <h3>1. length()</h3>
+                    <p>
+                        Returns the number of characters in a String.
+                    </p>
+                </div>
+
+                <div class="point">
+                    <h3>2. charAt()</h3>
+                    <p>
+                        Returns the character at a particular index.
+                    </p>
+                </div>
+
+                <div class="point">
+                    <h3>3. toUpperCase()</h3>
+                    <p>
+                        Converts the String into uppercase.
+                    </p>
+                </div>
+
+                <div class="point">
+                    <h3>4. toLowerCase()</h3>
+                    <p>
+                        Converts the String into lowercase.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Practice Questions -->
+        <div class="card">
+            <h2>Practice Questions</h2>
+
+            <div class="quiz">
+
+                <div class="quiz-question">
+                    <h3>Q1. Which method is used to find the length of a String?</h3>
+
+                    <button class="option" onclick="checkAnswer(false)">
+                        A. size()
+                    </button>
+
+                    <button class="option" onclick="checkAnswer(true)">
+                        B. length()
+                    </button>
+
+                    <button class="option" onclick="checkAnswer(false)">
+                        C. count()
+                    </button>
+
+                    <button class="option" onclick="checkAnswer(false)">
+                        D. getLength()
+                    </button>
+
+                    <p id="answer-message" class="answer-message"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>Q2. Which method is used to access a character?</h3>
+
+                    <button class="option" onclick="checkSecond(false)">
+                        A. get()
+                    </button>
+
+                    <button class="option" onclick="checkSecond(true)">
+                        B. charAt()
+                    </button>
+
+                    <button class="option" onclick="checkSecond(false)">
+                        C. character()
+                    </button>
+
+                    <button class="option" onclick="checkSecond(false)">
+                        D. index()
+                    </button>
+
+                    <p id="second-message" class="answer-message"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Complete -->
+        <div class="complete-section">
+
+            <button class="complete-btn" onclick="completeTopic()">
+                ✓ Mark Topic as Completed
+            </button>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function checkAnswer(correct) {
+
+            const message = document.getElementById("answer-message");
+
+            if (correct) {
+                message.innerText = "✅ Correct Answer!";
+                message.style.color = "#047857";
+            } else {
+                message.innerText = "❌ Wrong Answer. Try again!";
+                message.style.color = "#dc2626";
+            }
+        }
+
+        function checkSecond(correct) {
+
+            const message = document.getElementById("second-message");
+
+            if (correct) {
+                message.innerText = "✅ Correct Answer!";
+                message.style.color = "#047857";
+            } else {
+                message.innerText = "❌ Wrong Answer. Try again!";
+                message.style.color = "#dc2626";
+            }
+        }
+
+        function completeTopic() {
+
+            localStorage.setItem("stringsCompleted", "true");
+
+            document.getElementById("message").innerText =
+                "🎉 Strings completed! Your progress has been saved.";
+        }
+
+    </script>
+
+</body>
+</html>

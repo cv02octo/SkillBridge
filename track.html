@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Progress - SkillBridge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="subject.html">Assessments</a>
+            <a href="roadmap.html">Roadmaps</a>
+            <a href="track.html" class="active">Progress</a>
+            <a href="internship.html">Internships</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="nav-btn-secondary">Log In</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS PAGE CONTENT -->
+    <section class="features-section" style="background: var(--bg-main);">
+
+        <div class="features-header animate-fade-in">
+            <span class="badge-tag"><i class="fa-solid fa-chart-column"></i> PERFORMANCE ANALYTICS</span>
+            <h2>Track Your Skill Progress</h2>
+            <p>Monitor your active learning trajectories, complete target milestones, and build internship-level engineering expertise.</p>
+        </div>
+
+        <!-- OVERALL PROGRESS CARD -->
+        <div class="overall-progress-card animate-fade-in" style="margin-bottom: 40px;">
+            <div class="overall-progress-content">
+                <div>
+                    <h2><i class="fa-solid fa-graduation-cap" style="color: var(--primary);"></i> Overall Placement Curriculum Progress</h2>
+                    <p>Keep going! You are making steady progress toward your engineering goals.</p>
+                </div>
+                <div class="overall-progress-number">
+                    60%
+                </div>
+            </div>
+
+            <progress value="60" max="100"></progress>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                <p class="progress-caption">60% of your targeted learning path completed</p>
+                <span class="status completed-status"><i class="fa-solid fa-trophy"></i> Rank #42 on Leaderboard</span>
+            </div>
+        </div>
+
+        <div class="features-header" style="margin-bottom: 30px;">
+            <span class="badge-tag">SUBJECT PROGRESS</span>
+            <h2>Skill Breakdown & Status</h2>
+        </div>
+
+        <!-- SKILL PROGRESS CARDS GRID -->
+        <div class="features-grid-6">
+
+            <div class="feature-card-clean animate-float-slow">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div class="pastel-badge-icon icon-green">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <span class="status completed-status">Completed</span>
+                </div>
+                <h3>Programming Fundamentals</h3>
+                <p>Variables, control loops, functions, OOP logic and basic syntax.</p>
+                <div style="margin-top: 14px; width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+                        <span>Progress</span><span>100%</span>
+                    </div>
+                    <progress value="100" max="100"></progress>
+                </div>
+            </div>
+
+            <div class="feature-card-clean animate-float-slow" style="animation-delay: 0.4s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div class="pastel-badge-icon icon-green">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <span class="status completed-status">Completed</span>
+                </div>
+                <h3>Arrays & Strings</h3>
+                <p>Substrings, two-pointer techniques, searching and sliding window problems.</p>
+                <div style="margin-top: 14px; width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+                        <span>Progress</span><span>100%</span>
+                    </div>
+                    <progress value="100" max="100"></progress>
+                </div>
+            </div>
+
+            <div class="feature-card-clean animate-float-slow" style="animation-delay: 0.8s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div class="pastel-badge-icon icon-blue">
+                        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+                    </div>
+                    <span class="status progress-status">In Progress</span>
+                </div>
+                <h3>Stack & Queue</h3>
+                <p>LIFO/FIFO operations, expression parsing, and queue implementations.</p>
+                <div style="margin-top: 14px; width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+                        <span>Progress</span><span>60%</span>
+                    </div>
+                    <progress value="60" max="100"></progress>
+                </div>
+            </div>
+
+            <div class="feature-card-clean animate-float-slow" style="animation-delay: 1.2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div class="pastel-badge-icon icon-yellow">
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                    <span class="status pending-status">Not Started</span>
+                </div>
+                <h3>Linked Lists</h3>
+                <p>Singly/doubly linked lists, cycle detection, node insertion and reversal.</p>
+                <div style="margin-top: 14px; width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+                        <span>Progress</span><span>0%</span>
+                    </div>
+                    <progress value="0" max="100"></progress>
+                </div>
+            </div>
+
+            <div class="feature-card-clean animate-float-slow" style="animation-delay: 1.6s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div class="pastel-badge-icon icon-yellow">
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                    <span class="status pending-status">Not Started</span>
+                </div>
+                <h3>Algorithms</h3>
+                <p>Merge sort, quicksort, binary search and dynamic programming introduction.</p>
+                <div style="margin-top: 14px; width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+                        <span>Progress</span><span>0%</span>
+                    </div>
+                    <progress value="0" max="100"></progress>
+                </div>
+            </div>
+
+            <div class="feature-card-clean animate-float-slow" style="animation-delay: 2s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div class="pastel-badge-icon icon-purple">
+                        <i class="fa-solid fa-code-commit"></i>
+                    </div>
+                    <span class="status pending-status">Not Started</span>
+                </div>
+                <h3>Capstone Projects</h3>
+                <p>Full-stack web application development and system architecture design.</p>
+                <div style="margin-top: 14px; width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+                        <span>Progress</span><span>0%</span>
+                    </div>
+                    <progress value="0" max="100"></progress>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- STUDENT SUCCESS CTA BANNER WITH ARTWORK -->
+        <div class="student-cta-box" style="margin-top: 60px;">
+            <div class="student-cta-content">
+                <span class="badge-tag" style="margin-bottom: 8px;">PLACEMENT GUARANTEE</span>
+                <h2>Accelerate Your Career Trajectory</h2>
+                <p>Complete Stack & Queue problem sets to unlock advanced tree algorithms and company mock interviews.</p>
+                <a href="roadmap.html" class="btn-hero-primary">
+                    View Complete Roadmap <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="student-cta-graphic">
+                <img src="student-success.jpg" alt="Student Career Success Celebrating Job Offer">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img" style="background: white; padding: 4px; border-radius: 8px;">
+                    <span style="color: white;">SkillBridge</span>
+                </a>
+                <p>Empowering tech learners and computer science students with structured skill assessments, targeted learning paths, and placement guidance.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="subject.html">Assessments</a></li>
+                    <li><a href="roadmap.html">Roadmaps</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Skill Domains</h4>
+                <ul>
+                    <li><a href="dsa.html">Data Structures</a></li>
+                    <li><a href="dbms.html">Database Systems</a></li>
+                    <li><a href="web.html">Web Development</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="track.html">Progress Tracker</a></li>
+                    <li><a href="internship.html">Internship Portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

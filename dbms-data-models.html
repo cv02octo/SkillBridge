@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Models | SkillBridge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            margin-left: 24px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .back-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .content-card h2 {
+            color: #173b8f;
+            margin-bottom: 15px;
+        }
+
+        .content-card p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .content-card ul {
+            margin-left: 25px;
+            color: #4b5563;
+            line-height: 1.9;
+        }
+
+        .model-card {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+        }
+
+        .model-card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .example {
+            background: #eef4ff;
+            border-left: 5px solid #2563eb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .example strong {
+            color: #173b8f;
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .box {
+            background: #2563eb;
+            color: white;
+            padding: 18px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .arrow {
+            font-size: 25px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .mcq {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 18px;
+        }
+
+        .mcq h3 {
+            color: #173b8f;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .option {
+            display: block;
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eef4ff;
+            border-color: #2563eb;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .check-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .check-btn:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .complete-section {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin: 30px 0 50px;
+        }
+
+        .complete-section h2 {
+            color: #173b8f;
+            margin-bottom: 10px;
+        }
+
+        .complete-section p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .complete-btn {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background: #15803d;
+        }
+
+        .complete-btn.completed {
+            background: #6b7280;
+            cursor: default;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .diagram {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        SkillBridge
+    </div>
+
+    <div>
+
+        <a href="index.html">Home</a>
+        <a href="subject.html">Subjects</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+<section class="hero">
+
+    <h1>🗂️ Data Models</h1>
+
+    <p>
+        Learn how data is organized and represented in a DBMS
+    </p>
+
+</section>
+
+
+<a href="dbms.html" class="back-btn">
+    ← Back to DBMS
+</a>
+
+
+<div class="content-card">
+
+    <h2>📘 What is a Data Model?</h2>
+
+    <p>
+        A data model is a way of describing how data is
+        organized, stored and connected inside a database.
+    </p>
+
+    <p>
+        It helps us understand the structure of the database
+        and the relationship between different pieces of data.
+    </p>
+
+    <div class="example">
+
+        <strong>💡 Simple Example:</strong>
+
+        <p>
+            In a college database, we may have Student,
+            Course and Teacher information. A data model
+            shows how these entities are connected.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <h2>📚 Main Types of Data Models</h2>
+
+
+    <div class="model-card">
+
+        <h3>1️⃣ Hierarchical Data Model</h3>
+
+        <p>
+            Data is organized in the form of a tree structure.
+            It contains parent and child relationships.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                University → Department → Students
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="model-card">
+
+        <h3>2️⃣ Network Data Model</h3>
+
+        <p>
+            Data is represented as records connected through
+            links. A record can have multiple relationships.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                A student can enroll in multiple courses,
+                and a course can have multiple students.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="model-card">
+
+        <h3>3️⃣ Relational Data Model</h3>
+
+        <p>
+            Data is stored in tables consisting of rows
+            and columns. It is the most commonly used
+            data model in modern DBMS.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                A Student table can contain Roll No, Name,
+                Course and Marks.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="model-card">
+
+        <h3>4️⃣ Object-Oriented Data Model</h3>
+
+        <p>
+            Data is represented as objects, similar to
+            object-oriented programming concepts.
+        </p>
+
+        <div class="example">
+
+            <strong>Example:</strong>
+
+            <p>
+                A Student object may contain name, roll number
+                and methods related to the student.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <h2>🔗 Simple Data Model Representation</h2>
+
+    <p>
+        A simple college database can contain different
+        entities connected with each other.
+    </p>
+
+    <div class="diagram">
+
+        <div class="box">
+            Student
+        </div>
+
+        <div class="arrow">
+            ↔
+        </div>
+
+        <div class="box">
+            Course
+        </div>
+
+        <div class="arrow">
+            ↔
+        </div>
+
+        <div class="box">
+            Teacher
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="content-card">
+
+    <h2>⭐ Why are Data Models Important?</h2>
+
+    <ul>
+
+        <li>They provide a clear structure for data.</li>
+
+        <li>They show relationships between data.</li>
+
+        <li>They make database design easier.</li>
+
+        <li>They reduce confusion while creating databases.</li>
+
+        <li>They help developers understand the database structure.</li>
+
+    </ul>
+
+</div>
+
+
+<div class="content-card">
+
+    <h2>📝 Quick Revision</h2>
+
+    <ul>
+
+        <li>A data model describes how data is organized.</li>
+
+        <li>Hierarchical model uses a tree structure.</li>
+
+        <li>Network model uses interconnected records.</li>
+
+        <li>Relational model stores data in tables.</li>
+
+        <li>Relational model is widely used in modern DBMS.</li>
+
+        <li>Object-oriented model represents data as objects.</li>
+
+    </ul>
+
+</div>
+
+
+<div class="content-card">
+
+    <h2>❓ Quick MCQs</h2>
+
+    <p>
+        Test your understanding of Data Models.
+    </p>
+
+
+    <div class="mcq">
+
+        <h3>
+            1. What does a data model describe?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q1" value="A">
+            A. How data is organized
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="B">
+            B. How a computer is repaired
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="C">
+            C. How software is installed
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="D">
+            D. How a network cable works
+        </label>
+
+    </div>
+
+
+    <div class="mcq">
+
+        <h3>
+            2. Which data model represents data using tables?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q2" value="A">
+            A. Hierarchical Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="B">
+            B. Network Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="C">
+            C. Relational Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="D">
+            D. Object Model
+        </label>
+
+    </div>
+
+
+    <div class="mcq">
+
+        <h3>
+            3. Which model uses a tree-like structure?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q3" value="A">
+            A. Relational Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="B">
+            B. Hierarchical Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="C">
+            C. Object-Oriented Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="D">
+            D. Network Model
+        </label>
+
+    </div>
+
+
+    <div class="mcq">
+
+        <h3>
+            4. Which model is widely used in modern DBMS?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q4" value="A">
+            A. Relational Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="B">
+            B. Hierarchical Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="C">
+            C. Network Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="D">
+            D. None
+        </label>
+
+    </div>
+
+
+    <div class="mcq">
+
+        <h3>
+            5. Which data model represents data as objects?
+        </h3>
+
+        <label class="option">
+            <input type="radio" name="q5" value="A">
+            A. Hierarchical Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="B">
+            B. Relational Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="C">
+            C. Object-Oriented Model
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="D">
+            D. Network Model
+        </label>
+
+    </div>
+
+
+    <button class="check-btn" onclick="checkAnswers()">
+        Check Answers
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<div class="complete-section">
+
+    <h2>🎯 Complete This Topic</h2>
+
+    <p>
+        Finished studying Data Models?
+        Mark this topic as completed.
+    </p>
+
+    <button
+        id="completeBtn"
+        class="complete-btn"
+        onclick="markCompleted()">
+
+        Mark as Completed
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+    © 2026 SkillBridge |
+    Learn. Improve. Get Ready.
+
+</footer>
+
+
+<script>
+
+function checkAnswers() {
+
+    const answers = {
+        q1: "A",
+        q2: "C",
+        q3: "B",
+        q4: "A",
+        q5: "C"
+    };
+
+    let score = 0;
+    let attempted = 0;
+
+    for (let question in answers) {
+
+        const selected =
+            document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+        if (selected) {
+
+            attempted++;
+
+            if (selected.value === answers[question]) {
+                score++;
+            }
+
+        }
+
+    }
+
+    const result =
+        document.getElementById("result");
+
+    result.style.display = "block";
+
+    if (attempted < 5) {
+
+        result.style.background = "#fff7ed";
+        result.style.color = "#c2410c";
+
+        result.innerHTML =
+            "⚠️ Please answer all 5 questions first.";
+
+        return;
+    }
+
+    if (score >= 4) {
+
+        result.style.background = "#ecfdf5";
+        result.style.color = "#047857";
+
+        result.innerHTML =
+            "🎉 Excellent! You scored " +
+            score +
+            "/5.";
+
+    } else if (score >= 3) {
+
+        result.style.background = "#eff6ff";
+        result.style.color = "#1d4ed8";
+
+        result.innerHTML =
+            "👍 Good job! You scored " +
+            score +
+            "/5.";
+
+    } else {
+
+        result.style.background = "#fff1f2";
+        result.style.color = "#be123c";
+
+        result.innerHTML =
+            "📚 Keep practicing! You scored " +
+            score +
+            "/5.";
+
+    }
+
+}
+
+
+function markCompleted() {
+
+    localStorage.setItem(
+        "dbms_data-models",
+        "completed"
+    );
+
+    const button =
+        document.getElementById("completeBtn");
+
+    button.innerHTML =
+        "✓ Topic Completed";
+
+    button.classList.add("completed");
+
+    button.disabled = true;
+
+}
+
+
+function loadStatus() {
+
+    if (
+        localStorage.getItem(
+            "dbms_data-models"
+        ) === "completed"
+    ) {
+
+        const button =
+            document.getElementById("completeBtn");
+
+        button.innerHTML =
+            "✓ Topic Completed";
+
+        button.classList.add("completed");
+
+        button.disabled = true;
+
+    }
+
+}
+
+
+loadStatus();
+
+</script>
+
+
+</body>
+
+</html>
+

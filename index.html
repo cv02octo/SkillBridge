@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Bridge the Gap Between Learning and Placement</title>
+    
+    <!-- Google Fonts & Font Awesome CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="subject.html">Features</a>
+            <a href="roadmap.html">Roadmap</a>
+            <a href="internship.html">Companies</a>
+            <a href="track.html">Resources</a>
+            <a href="about.html">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <button class="nav-search-btn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="login.html" class="nav-btn-secondary">Log In</a>
+            <a href="assessment.html" class="nav-btn-primary">Get Started</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (MATCHING REFERENCE IMAGE) -->
+    <div class="hero-wrapper">
+        <div class="hero-grid-container">
+            <!-- Hero Left Content -->
+            <div class="hero-left">
+                <div class="hero-path-pill">
+                    <span class="dot"></span> Your Path to a Successful Career
+                </div>
+
+                <h1>
+                    Bridge the Gap Between Learning and <span class="gradient-text">Placement</span>
+                </h1>
+
+                <p>
+                    SkillBridge helps you prepare for campus placements with personalized roadmap, assessments, mock interviews, and real-time progress tracking — all in one place.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="assessment.html" class="btn-hero-primary">
+                        Get Started for Free <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="about.html" class="btn-hero-outline">
+                        <i class="fa-solid fa-circle-play" style="color: var(--primary);"></i> Watch Demo
+                    </a>
+                </div>
+
+                <div class="hero-social-proof">
+                    <div class="avatar-group">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Student">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Student">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Student">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Student">
+                    </div>
+                    <div class="social-proof-text">
+                        <strong>10,000+ students</strong><br>are already on SkillBridge
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right Floating Widget Display -->
+            <div class="hero-right-display">
+                <!-- Floating Widget 1: Readiness Circle -->
+                <div class="widget-card widget-readiness">
+                    <div class="widget-title">Overall Readiness</div>
+                    <div class="meter-circle">
+                        <div class="meter-inner">78%</div>
+                    </div>
+                    <div class="meter-caption">You're on the right track!</div>
+                </div>
+
+                <!-- Floating Widget 2: Your Roadmap Checklist -->
+                <div class="widget-card widget-roadmap">
+                    <div class="widget-header-flex">
+                        <span class="widget-title" style="margin: 0;">Your Roadmap</span>
+                        <a href="roadmap.html" class="view-all">View All</a>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon-active"><i class="fa-solid fa-check"></i></div>
+                        <span>DSA Basics</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon-active"><i class="fa-solid fa-check"></i></div>
+                        <span>Solve 50 Problems</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon-empty"></div>
+                        <span>Take Mock Interview</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon-empty"></div>
+                        <span>Apply for Companies</span>
+                    </div>
+                </div>
+
+                <!-- Floating Widget 3: Mock Interview -->
+                <div class="widget-card widget-mock">
+                    <div class="mock-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="mock-text">
+                        <h4>Mock Interview</h4>
+                        <p>Improve your communication and confidence →</p>
+                    </div>
+                </div>
+
+                <!-- Floating Widget 4: Target Companies -->
+                <div class="widget-card widget-companies">
+                    <div class="widget-header-flex">
+                        <span class="widget-title" style="margin: 0;">Target Companies</span>
+                        <a href="internship.html" class="view-all">View All</a>
+                    </div>
+                    <div class="company-icons-row">
+                        <div class="company-logo-box"><i class="fa-brands fa-google" style="color: #ea4335;"></i></div>
+                        <div class="company-logo-box"><i class="fa-brands fa-amazon" style="color: #ff9900;"></i></div>
+                        <div class="company-logo-box"><i class="fa-brands fa-microsoft" style="color: #00a4ef;"></i></div>
+                        <div class="company-logo-box"><i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i></div>
+                    </div>
+                </div>
+
+                <!-- Center Graphic Laptop Showcase -->
+                <div class="hero-graphic-center">
+                    <img src="student-laptop.jpg" alt="Student Studying on Laptop">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
+        <div class="features-header">
+            <span class="badge-tag">FEATURES</span>
+            <h2>Everything You Need to Get Placed</h2>
+            <p>A complete platform to assess, practice, and grow your placement readiness</p>
+        </div>
+
+        <div class="features-grid-6">
+            <!-- 1. Skill Assessments -->
+            <div class="feature-card-clean">
+                <div class="pastel-badge-icon icon-red">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <h3>Skill Assessments</h3>
+                <p>Test your skills in DSA, aptitude, coding and more with real exam patterns.</p>
+            </div>
+
+            <!-- 2. Personalized Roadmap -->
+            <div class="feature-card-clean">
+                <div class="pastel-badge-icon icon-blue">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <h3>Personalized Roadmap</h3>
+                <p>Get AI-powered roadmap based on your current level and target companies.</p>
+            </div>
+
+            <!-- 3. Mock Interviews -->
+            <div class="feature-card-clean">
+                <div class="pastel-badge-icon icon-green">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <h3>Mock Interviews</h3>
+                <p>Practice with AI and mentor-led mock interviews for real-world experience.</p>
+            </div>
+
+            <!-- 4. Company Preparation -->
+            <div class="feature-card-clean">
+                <div class="pastel-badge-icon icon-yellow">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <h3>Company Preparation</h3>
+                <p>Get company-specific questions, previous papers and preparation materials.</p>
+            </div>
+
+            <!-- 5. Progress Tracking -->
+            <div class="feature-card-clean">
+                <div class="pastel-badge-icon icon-purple">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3>Progress Tracking</h3>
+                <p>Track your performance with detailed analytics and improvement tips.</p>
+            </div>
+
+            <!-- 6. Mentor Support -->
+            <div class="feature-card-clean">
+                <div class="pastel-badge-icon icon-pink">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+                <h3>Mentor Support</h3>
+                <p>Interact with mentors and get guidance for career growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DARK STATS BANNER BAND -->
+    <section class="stats-banner-band">
+        <div class="stats-grid-4">
+            <div class="stat-col">
+                <div class="stat-icon-circle">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="number">10,000+</div>
+                <div class="label">Active Students</div>
+            </div>
+
+            <div class="stat-col">
+                <div class="stat-icon-circle">
+                    <i class="fa-solid fa-building-user"></i>
+                </div>
+                <div class="number">200+</div>
+                <div class="label">Partner Companies</div>
+            </div>
+
+            <div class="stat-col">
+                <div class="stat-icon-circle">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="number">85%</div>
+                <div class="label">Placement Success Rate</div>
+            </div>
+
+            <div class="stat-col">
+                <div class="stat-icon-circle">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="number">4.8/5</div>
+                <div class="label">Student Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works-section">
+        <div class="features-header">
+            <span class="badge-tag">HOW IT WORKS</span>
+            <h2>Your Journey to Placement in 4 Simple Steps</h2>
+        </div>
+
+        <div class="steps-flow-container">
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-number-pill step-num-1">1</div>
+                <div class="step-icon-box">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+                <h3>Create Your Profile</h3>
+                <p>Sign up and tell us about your skills, goals and target companies.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-number-pill step-num-2">2</div>
+                <div class="step-icon-box" style="color: var(--purple-accent);">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <h3>Take Assessments</h3>
+                <p>Evaluate your current level with topic-wise tests and quizzes.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-number-pill step-num-3">3</div>
+                <div class="step-icon-box" style="color: var(--violet-accent);">
+                    <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <h3>Follow Your Roadmap</h3>
+                <p>Get a personalized plan and practice with curated resources.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-number-pill step-num-4">4</div>
+                <div class="step-icon-box" style="color: var(--magenta-accent);">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3>Get Placed</h3>
+                <p>Build confidence, crack interviews and land your dream job!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT CTA BANNER -->
+    <section class="student-banner-section">
+        <div class="student-cta-box">
+            <div class="student-cta-content">
+                <span class="badge-tag" style="margin-bottom: 8px;">FOR STUDENTS</span>
+                <h2>Build Skills Today for a Better Tomorrow</h2>
+                <p>Whether you're a beginner or preparing for top product companies, SkillBridge is your all-in-one placement partner.</p>
+                <a href="assessment.html" class="btn-hero-primary">
+                    Start Your Journey <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="student-cta-graphic">
+                <img src="student-success.jpg" alt="Student Celebrating Job Offer & Skill Placement">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img" style="background: white; padding: 4px; border-radius: 8px;">
+                    <span style="color: white;">SkillBridge</span>
+                </a>
+                <p>SkillBridge helps you prepare for campus placements with personalized roadmaps, assessments, mock interviews, and real-time progress tracking.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="subject.html">Features</a></li>
+                    <li><a href="roadmap.html">Roadmaps</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Placement Prep</h4>
+                <ul>
+                    <li><a href="dsa.html">Data Structures</a></li>
+                    <li><a href="dbms.html">Database Systems</a></li>
+                    <li><a href="web.html">Web Development</a></li>
+                    <li><a href="internship.html">Company Prep</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support & Legal</h4>
+                <ul>
+                    <li><a href="track.html">Progress Analytics</a></li>
+                    <li><a href="about.html">About SkillBridge</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+            <p>Bridging Skills to Opportunities.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

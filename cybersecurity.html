@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cyber Security Assessment - SkillBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>SKILLBRIDGE</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assessment.html">Assessment</a>
+        </div>
+    </nav>
+
+    <div class="test-container">
+
+        <div class="test-header">
+
+            <h1>Cyber Security Assessment</h1>
+
+            <p>
+                Question <span id="question-number">1</span> / 20
+            </p>
+
+        </div>
+
+        <div class="test-card">
+
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <div class="test-buttons">
+
+                <button id="next-btn">Next →</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const questionBank = [
+
+            {
+                question: "What is Cyber Security?",
+                options: [
+                    "Protection of computer systems and networks",
+                    "Designing websites",
+                    "Creating databases",
+                    "Writing documents"
+                ],
+                answer: "Protection of computer systems and networks"
+            },
+
+            {
+                question: "What is the main goal of information security?",
+                options: [
+                    "Protect information from unauthorized access",
+                    "Increase internet speed",
+                    "Create software",
+                    "Design websites"
+                ],
+                answer: "Protect information from unauthorized access"
+            },
+
+            {
+                question: "What does CIA stand for in information security?",
+                options: [
+                    "Confidentiality, Integrity, Availability",
+                    "Computer, Internet, Access",
+                    "Control, Information, Authentication",
+                    "Cyber, Internet, Application"
+                ],
+                answer: "Confidentiality, Integrity, Availability"
+            },
+
+            {
+                question: "Which of the following is a type of malware?",
+                options: [
+                    "Virus",
+                    "Firewall",
+                    "Password",
+                    "Encryption"
+                ],
+                answer: "Virus"
+            },
+
+            {
+                question: "What is a computer virus?",
+                options: [
+                    "A malicious program that can replicate itself",
+                    "A security device",
+                    "A type of firewall",
+                    "A network cable"
+                ],
+                answer: "A malicious program that can replicate itself"
+            },
+
+            {
+                question: "What is phishing?",
+                options: [
+                    "A fraudulent attempt to obtain sensitive information",
+                    "A type of encryption",
+                    "A backup method",
+                    "A network protocol"
+                ],
+                answer: "A fraudulent attempt to obtain sensitive information"
+            },
+
+            {
+                question: "What is ransomware?",
+                options: [
+                    "Malware that locks or encrypts data and demands payment",
+                    "A type of antivirus",
+                    "A network device",
+                    "A programming language"
+                ],
+                answer: "Malware that locks or encrypts data and demands payment"
+            },
+
+            {
+                question: "What is a firewall?",
+                options: [
+                    "A security system that monitors network traffic",
+                    "A type of virus",
+                    "A programming language",
+                    "A database"
+                ],
+                answer: "A security system that monitors network traffic"
+            },
+
+            {
+                question: "What is encryption?",
+                options: [
+                    "Converting data into a protected form",
+                    "Deleting data",
+                    "Copying data",
+                    "Sharing data publicly"
+                ],
+                answer: "Converting data into a protected form"
+            },
+
+            {
+                question: "What is decryption?",
+                options: [
+                    "Converting encrypted data back into readable form",
+                    "Deleting encrypted data",
+                    "Creating a virus",
+                    "Blocking a network"
+                ],
+                answer: "Converting encrypted data back into readable form"
+            },
+
+            {
+                question: "Which is an example of strong authentication?",
+                options: [
+                    "Multi-factor authentication",
+                    "Using username only",
+                    "Using no password",
+                    "Sharing passwords"
+                ],
+                answer: "Multi-factor authentication"
+            },
+
+            {
+                question: "What does MFA stand for?",
+                options: [
+                    "Multi-Factor Authentication",
+                    "Multiple File Access",
+                    "Main Firewall Application",
+                    "Managed File Authentication"
+                ],
+                answer: "Multi-Factor Authentication"
+            },
+
+            {
+                question: "What is a strong password?",
+                options: [
+                    "A password using a mix of letters, numbers and symbols",
+                    "Your name",
+                    "123456",
+                    "Your birth year"
+                ],
+                answer: "A password using a mix of letters, numbers and symbols"
+            },
+
+            {
+                question: "What is social engineering?",
+                options: [
+                    "Manipulating people to reveal confidential information",
+                    "Designing social media websites",
+                    "Building computer networks",
+                    "Creating databases"
+                ],
+                answer: "Manipulating people to reveal confidential information"
+            },
+
+            {
+                question: "What is spyware?",
+                options: [
+                    "Malware that secretly monitors user activity",
+                    "A firewall",
+                    "An antivirus",
+                    "A password manager"
+                ],
+                answer: "Malware that secretly monitors user activity"
+            },
+
+            {
+                question: "What is a Trojan horse?",
+                options: [
+                    "Malware disguised as legitimate software",
+                    "A type of firewall",
+                    "A network protocol",
+                    "An encryption algorithm"
+                ],
+                answer: "Malware disguised as legitimate software"
+            },
+
+            {
+                question: "What is a brute-force attack?",
+                options: [
+                    "Trying many possible passwords until one works",
+                    "Encrypting a file",
+                    "Installing antivirus",
+                    "Blocking a website"
+                ],
+                answer: "Trying many possible passwords until one works"
+            },
+
+            {
+                question: "What is a denial-of-service attack?",
+                options: [
+                    "An attack that makes a service unavailable",
+                    "A method of encryption",
+                    "A type of password",
+                    "A backup technique"
+                ],
+                answer: "An attack that makes a service unavailable"
+            },
+
+            {
+                question: "What does HTTPS provide?",
+                options: [
+                    "Secure communication between browser and website",
+                    "Faster CPU performance",
+                    "More storage space",
+                    "Free internet"
+                ],
+                answer: "Secure communication between browser and website"
+            },
+
+            {
+                question: "What is antivirus software used for?",
+                options: [
+                    "Detecting and removing malicious software",
+                    "Creating websites",
+                    "Managing databases",
+                    "Increasing RAM"
+                ],
+                answer: "Detecting and removing malicious software"
+            },
+
+            {
+                question: "What is a security vulnerability?",
+                options: [
+                    "A weakness that can be exploited",
+                    "A strong password",
+                    "A security update",
+                    "A firewall rule"
+                ],
+                answer: "A weakness that can be exploited"
+            },
+
+            {
+                question: "What is a security patch?",
+                options: [
+                    "An update that fixes security vulnerabilities",
+                    "A type of virus",
+                    "A password",
+                    "A network cable"
+                ],
+                answer: "An update that fixes security vulnerabilities"
+            },
+
+            {
+                question: "What is ethical hacking?",
+                options: [
+                    "Authorized testing of systems for security weaknesses",
+                    "Stealing passwords",
+                    "Creating malware",
+                    "Attacking websites without permission"
+                ],
+                answer: "Authorized testing of systems for security weaknesses"
+            },
+
+            {
+                question: "What is a hacker?",
+                options: [
+                    "A person who uses technical skills to access or manipulate computer systems",
+                    "Only a person who creates websites",
+                    "A type of antivirus",
+                    "A network cable"
+                ],
+                answer: "A person who uses technical skills to access or manipulate computer systems"
+            },
+
+            {
+                question: "Which of the following helps protect data from unauthorized access?",
+                options: [
+                    "Encryption",
+                    "Deleting backups",
+                    "Weak passwords",
+                    "Sharing credentials"
+                ],
+                answer: "Encryption"
+            },
+
+            {
+                question: "What is access control?",
+                options: [
+                    "Managing who can access resources",
+                    "Increasing internet speed",
+                    "Deleting files",
+                    "Creating viruses"
+                ],
+                answer: "Managing who can access resources"
+            },
+
+            {
+                question: "What is a digital signature mainly used for?",
+                options: [
+                    "Verifying authenticity and integrity of digital data",
+                    "Increasing storage",
+                    "Blocking advertisements",
+                    "Creating passwords"
+                ],
+                answer: "Verifying authenticity and integrity of digital data"
+            },
+
+            {
+                question: "What is a backup?",
+                options: [
+                    "A copy of data kept for recovery",
+                    "A type of malware",
+                    "A network attack",
+                    "A password"
+                ],
+                answer: "A copy of data kept for recovery"
+            },
+
+            {
+                question: "Which of the following is a safe security practice?",
+                options: [
+                    "Keeping software updated",
+                    "Sharing passwords",
+                    "Opening unknown links",
+                    "Using the same password everywhere"
+                ],
+                answer: "Keeping software updated"
+            },
+
+            {
+                question: "What is identity theft?",
+                options: [
+                    "Using another person's personal information without permission",
+                    "Deleting your own files",
+                    "Installing antivirus",
+                    "Creating a backup"
+                ],
+                answer: "Using another person's personal information without permission"
+            }
+
+        ];
+
+
+        function shuffle(array) {
+
+            for (let i = array.length - 1; i > 0; i--) {
+
+                let j =
+                    Math.floor(Math.random() * (i + 1));
+
+                [array[i], array[j]] =
+                    [array[j], array[i]];
+
+            }
+
+            return array;
+        }
+
+
+        let selectedQuestions =
+            shuffle([...questionBank]).slice(0, 20);
+
+        let currentQuestion = 0;
+
+        let score = 0;
+
+        let selectedAnswer = "";
+
+
+        function loadQuestion() {
+
+            let q =
+                selectedQuestions[currentQuestion];
+
+            document.getElementById("question-number").innerText =
+                currentQuestion + 1;
+
+            document.getElementById("question").innerText =
+                q.question;
+
+            let optionsContainer =
+                document.getElementById("options");
+
+            optionsContainer.innerHTML = "";
+
+            selectedAnswer = "";
+
+            let shuffledOptions =
+                shuffle([...q.options]);
+
+
+            shuffledOptions.forEach((option, index) => {
+
+                let label =
+                    document.createElement("label");
+
+                label.className =
+                    "answer-option";
+
+
+                let input =
+                    document.createElement("input");
+
+                input.type = "radio";
+
+                input.name = "answer";
+
+                input.value = option;
+
+
+                let letter =
+                    document.createElement("span");
+
+                letter.className =
+                    "option-letter";
+
+                letter.innerText =
+                    String.fromCharCode(65 + index);
+
+
+                let text =
+                    document.createElement("span");
+
+                text.innerText = option;
+
+
+                label.appendChild(input);
+
+                label.appendChild(letter);
+
+                label.appendChild(text);
+
+
+                label.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".answer-option")
+                        .forEach(option =>
+                            option.classList.remove("selected")
+                        );
+
+                    label.classList.add("selected");
+
+                    selectedAnswer = option;
+
+                });
+
+
+                optionsContainer.appendChild(label);
+
+            });
+
+        }
+
+
+        document
+            .getElementById("next-btn")
+            .addEventListener("click", function () {
+
+                if (selectedAnswer === "") {
+
+                    alert("Please select an answer.");
+
+                    return;
+
+                }
+
+
+                if (
+                    selectedAnswer ===
+                    selectedQuestions[currentQuestion].answer
+                ) {
+
+                    score++;
+
+                }
+
+
+                if (currentQuestion < 19) {
+
+                    currentQuestion++;
+
+                    loadQuestion();
+
+                } else {
+
+                    localStorage.setItem(
+                        "cyberSecurityScore",
+                        score
+                    );
+
+                    window.location.href =
+                        "result.html";
+
+                }
+
+            });
+
+
+        loadQuestion();
+
+    </script>
+
+</body>
+
+</html>

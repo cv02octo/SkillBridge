@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS Mastery Course - SkillBridge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-bottom: 50px;
+        }
+
+        .topic-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition-base);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .topic-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .status {
+            display: inline-block;
+            background: var(--bg-main);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .status.completed {
+            background: var(--emerald-light);
+            color: var(--emerald);
+        }
+
+        .learn-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: var(--primary);
+            color: white !important;
+            padding: 11px;
+            border-radius: var(--radius-md);
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        .learn-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        @media (max-width: 768px) {
+            .topic-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="subject.html">Assessments</a>
+            <a href="roadmap.html">Roadmaps</a>
+            <a href="track.html">Progress</a>
+            <a href="internship.html">Internships</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="nav-btn-secondary">Sign In</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header style="background: white; text-align: center; padding: 50px 20px; border-bottom: 1px solid var(--border);">
+        <p class="small-title"><i class="fa-solid fa-database"></i> DATABASE MANAGEMENT SYSTEMS</p>
+        <h1>Master DBMS Concepts & SQL</h1>
+        <p style="max-width: 650px; margin: 10px auto 0; color: var(--text-muted);">Learn database architecture, SQL queries, ER modeling, keys, normalization, and ACID transaction properties.</p>
+    </header>
+
+    <div class="container" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+
+        <!-- OVERALL PROGRESS CARD -->
+        <div class="overall-progress-card" style="margin-bottom: 40px;">
+            <div class="overall-progress-content">
+                <div>
+                    <h2><i class="fa-solid fa-chart-pie" style="color: var(--primary);"></i> Your DBMS Learning Progress</h2>
+                    <p id="progressText">0 of 44 topics completed</p>
+                </div>
+                <div class="overall-progress-number" id="progressNumber">0%</div>
+            </div>
+            <progress value="0" max="100" id="progressFill"></progress>
+        </div>
+
+        <div id="completionMessage" style="display: none; background: var(--emerald-light); color: var(--emerald); padding: 18px; border-radius: 12px; text-align: center; margin-bottom: 30px; font-weight: bold;">
+            🎉 Congratulations! You have completed all DBMS topics and mastered Database Management Systems!
+        </div>
+
+        <a href="roadmap.html" class="btn btn-secondary" style="margin-bottom: 30px;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
+        </a>
+
+        <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+            <span class="section-badge">LEARNING MODULES</span>
+            <h2>DBMS Topics</h2>
+        </div>
+
+        <!-- TOPICS GRID -->
+        <div class="topic-grid">
+
+            <div class="topic-card" data-topic="introduction">
+                <div class="topic-icon">📖</div>
+                <h3>DBMS Introduction</h3>
+                <p>Learn what DBMS is, database concepts, data independence, and data abstraction levels.</p>
+                <span class="status">Not Started</span>
+                <a href="dbms-introduction.html" class="learn-btn">Start Module <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="topic-card" data-topic="file-system">
+                <div class="topic-icon">📁</div>
+                <h3>File System vs DBMS</h3>
+                <p>Understand drawbacks of traditional file systems, data redundancy, and why DBMS is required.</p>
+                <span class="status">Not Started</span>
+                <a href="dbms-file-system.html" class="learn-btn">Start Module <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="topic-card" data-topic="architecture">
+                <div class="topic-icon">🏗️</div>
+                <h3>DBMS Architecture</h3>
+                <p>Learn 1-tier, 2-tier, and 3-tier database architecture, schemas, and instances.</p>
+                <span class="status">Not Started</span>
+                <a href="dbms-architecture.html" class="learn-btn">Start Module <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="topic-card" data-topic="data-models">
+                <div class="topic-icon">📊</div>
+                <h3>Data Models</h3>
+                <p>Learn relational, ER, hierarchical, network, and object-oriented data modeling concepts.</p>
+                <span class="status">Not Started</span>
+                <a href="dbms-data-models.html" class="learn-btn">Start Module <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="topic-card" data-topic="keys">
+                <div class="topic-icon">🔑</div>
+                <h3>DBMS Keys</h3>
+                <p>Master Primary key, Foreign key, Super key, Candidate key, Alternate key, and Composite key.</p>
+                <span class="status">Not Started</span>
+                <a href="dbms-keys.html" class="learn-btn">Start Module <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="topic-card" data-topic="er-diagram">
+                <div class="topic-icon">🎨</div>
+                <h3>ER Diagrams</h3>
+                <p>Understand entities, attributes, relationships, cardinality ratios, and ER diagram notations.</p>
+                <span class="status">Not Started</span>
+                <a href="dbms-assessment.html" class="learn-btn">Take Assessment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-brand">
+                    <div class="nav-logo-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span>SkillBridge</span>
+                </a>
+                <p>Empowering tech learners and computer science students with structured skill assessments, targeted learning paths, and career guidance.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="subject.html">Assessments</a></li>
+                    <li><a href="roadmap.html">Roadmaps</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>DBMS Modules</h4>
+                <ul>
+                    <li><a href="dbms-introduction.html">Introduction</a></li>
+                    <li><a href="dbms-architecture.html">Architecture</a></li>
+                    <li><a href="dbms-keys.html">Keys</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="track.html">Progress Tracker</a></li>
+                    <li><a href="internship.html">Internship Portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const topics = [
+            "introduction", "file-system", "architecture", "data-models", "database-users",
+            "entity", "relationships", "er-diagram", "keys", "er-relational"
+        ];
+
+        function updateProgress() {
+            let completed = 0;
+            document.querySelectorAll(".topic-card").forEach(card => {
+                const topic = card.dataset.topic;
+                const status = card.querySelector(".status");
+                if (localStorage.getItem("dbms_" + topic) === "completed") {
+                    completed++;
+                    if (status) {
+                        status.innerHTML = "✓ Completed";
+                        status.classList.add("completed");
+                    }
+                } else if (status) {
+                    status.innerHTML = "Not Started";
+                    status.classList.remove("completed");
+                }
+            });
+
+            const percentage = Math.round((completed / Math.max(topics.length, 1)) * 100);
+            document.getElementById("progressNumber").innerHTML = percentage + "%";
+            document.getElementById("progressFill").value = percentage;
+            document.getElementById("progressText").innerHTML = completed + " of " + topics.length + " modules completed";
+
+            if (completed === topics.length && topics.length > 0) {
+                document.getElementById("completionMessage").style.display = "block";
+            }
+        }
+
+        updateProgress();
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

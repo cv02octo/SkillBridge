@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillBridge - Mixed Assessment</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+nav{
+    background:#173b8f;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h2{
+    color:white;
+    font-size:24px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:15px;
+}
+
+nav a:hover{
+    opacity:.8;
+}
+
+.assessment-header{
+    background:white;
+    text-align:center;
+    padding:45px 20px 35px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.small-title{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.assessment-header h1{
+    color:#173b8f;
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.assessment-header p{
+    color:#6b7280;
+    font-size:15px;
+}
+
+.assessment-container{
+    max-width:850px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.assessment-info{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px 22px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.info-item{
+    text-align:center;
+}
+
+.info-item span{
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:5px;
+}
+
+.info-item strong{
+    color:#173b8f;
+    font-size:16px;
+}
+
+.question-card{
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 7px 22px rgba(0,0,0,.06);
+}
+
+.question-number{
+    color:#2563eb;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.subject-label{
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:18px;
+}
+
+.question{
+    font-size:22px;
+    line-height:1.5;
+    color:#111827;
+    margin-bottom:28px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+}
+
+.option{
+    padding:16px 18px;
+    border:1px solid #dbe1ea;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+    background:#fff;
+    font-size:15px;
+}
+
+.option:hover{
+    border-color:#2563eb;
+    background:#f5f8ff;
+}
+
+.option.selected{
+    border-color:#2563eb;
+    background:#eef4ff;
+    color:#173b8f;
+    font-weight:bold;
+}
+
+.button-area{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:28px;
+}
+
+button{
+    border:none;
+    background:#173b8f;
+    color:white;
+    padding:13px 28px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#102d70;
+}
+
+#submitBtn{
+    display:none;
+}
+
+.result-box{
+    display:none;
+    background:white;
+    border-radius:18px;
+    padding:40px;
+    text-align:center;
+    border:1px solid #e5e7eb;
+    box-shadow:0 7px 22px rgba(0,0,0,.06);
+}
+
+.result-box h2{
+    color:#173b8f;
+    margin-bottom:15px;
+}
+
+.final-score{
+    font-size:45px;
+    font-weight:bold;
+    color:#2563eb;
+    margin:15px 0;
+}
+
+.result-box p{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.result-box a{
+    display:inline-block;
+    background:#173b8f;
+    color:white;
+    text-decoration:none;
+    padding:13px 25px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+@media(max-width:700px){
+
+    nav{
+        padding:18px 25px;
+    }
+
+    nav a{
+        margin-left:10px;
+        font-size:12px;
+    }
+
+    .assessment-header h1{
+        font-size:30px;
+    }
+
+    .assessment-info{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .question-card{
+        padding:25px;
+    }
+
+    .question{
+        font-size:19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>SkillBridge</h2>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+</nav>
+
+<header class="assessment-header">
+
+    <div class="small-title">
+        MIXED SKILL ASSESSMENT
+    </div>
+
+    <h1>Test Your Overall Skills</h1>
+
+    <p>
+        Answer questions from different computer science subjects
+        and discover your overall skill level.
+    </p>
+
+</header>
+
+<main class="assessment-container">
+
+    <div class="assessment-info">
+
+        <div class="info-item">
+            <span>Questions</span>
+            <strong>50</strong>
+        </div>
+
+        <div class="info-item">
+            <span>Easy</span>
+            <strong>15</strong>
+        </div>
+
+        <div class="info-item">
+            <span>Moderate</span>
+            <strong>20</strong>
+        </div>
+
+        <div class="info-item">
+            <span>High</span>
+            <strong>15</strong>
+        </div>
+
+    </div>
+
+    <div class="question-card" id="questionCard">
+
+        <div class="question-number" id="questionNumber">
+            Question 1 / 50
+        </div>
+
+        <div class="subject-label" id="subjectLabel">
+            Mixed Assessment
+        </div>
+
+        <div class="question" id="questionText">
+            Loading question...
+        </div>
+
+        <div class="options" id="optionsContainer"></div>
+
+        <div class="button-area">
+
+            <button id="nextBtn" onclick="nextQuestion()">
+                Next →
+            </button>
+
+            <button id="submitBtn" onclick="submitAssessment()">
+                Submit Assessment
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="result-box" id="resultBox">
+
+        <h2>Assessment Completed 🎉</h2>
+
+        <div class="final-score" id="finalScore">
+            0 / 50
+        </div>
+
+        <p>
+            Your mixed assessment has been completed successfully.
+        </p>
+
+        <a href="result.html">
+            View Detailed Result →
+        </a>
+
+    </div>
+
+</main>
+
+<script>
+
+const questionBank = [
+
+/* EASY */
+
+{
+subject:"Programming",
+difficulty:"Easy",
+question:"Which keyword is used to create an object in Java?",
+options:["new","create","object","class"],
+answer:"new"
+},
+
+{
+subject:"Programming",
+difficulty:"Easy",
+question:"Which data type stores true or false?",
+options:["int","boolean","char","float"],
+answer:"boolean"
+},
+
+{
+subject:"Programming",
+difficulty:"Easy",
+question:"Which symbol is used for a single-line comment in Java?",
+options:["//","/*","##","<!--"],
+answer:"//"
+},
+
+{
+subject:"DSA",
+difficulty:"Easy",
+question:"Which data structure follows LIFO?",
+options:["Queue","Stack","Array","Tree"],
+answer:"Stack"
+},
+
+{
+subject:"DSA",
+difficulty:"Easy",
+question:"Which data structure follows FIFO?",
+options:["Stack","Queue","Tree","Graph"],
+answer:"Queue"
+},
+
+{
+subject:"DBMS",
+difficulty:"Easy",
+question:"What does SQL stand for?",
+options:[
+"Structured Query Language",
+"Simple Query Language",
+"System Query Language",
+"Sequential Query Language"
+],
+answer:"Structured Query Language"
+},
+
+{
+subject:"DBMS",
+difficulty:"Easy",
+question:"Which command retrieves data from a table?",
+options:["SELECT","INSERT","DELETE","UPDATE"],
+answer:"SELECT"
+},
+
+{
+subject:"Operating System",
+difficulty:"Easy",
+question:"Which of these is an operating system?",
+options:["Windows","HTML","Java","Oracle"],
+answer:"Windows"
+},
+
+{
+subject:"Operating System",
+difficulty:"Easy",
+question:"What is a process?",
+options:[
+"A program in execution",
+"A database",
+"A hardware device",
+"A programming language"
+],
+answer:"A program in execution"
+},
+
+{
+subject:"Computer Networks",
+difficulty:"Easy",
+question:"What does IP stand for?",
+options:[
+"Internet Protocol",
+"Internal Protocol",
+"Internet Process",
+"Information Protocol"
+],
+answer:"Internet Protocol"
+},
+
+{
+subject:"Computer Networks",
+difficulty:"Easy",
+question:"Which device connects different networks?",
+options:["Router","Keyboard","Monitor","Printer"],
+answer:"Router"
+},
+
+{
+subject:"Cyber Security",
+difficulty:"Easy",
+question:"What does malware mean?",
+options:[
+"Malicious Software",
+"Managed Software",
+"Main Software",
+"Manual Software"
+],
+answer:"Malicious Software"
+},
+
+{
+subject:"Web Development",
+difficulty:"Easy",
+question:"Which language structures a web page?",
+options:["HTML","CSS","Java","SQL"],
+answer:"HTML"
+},
+
+{
+subject:"Cloud Computing",
+difficulty:"Easy",
+question:"Which is an example of cloud storage?",
+options:["Google Drive","Keyboard","Printer","Monitor"],
+answer:"Google Drive"
+},
+
+{
+subject:"AI / ML",
+difficulty:"Easy",
+question:"What does AI stand for?",
+options:[
+"Artificial Intelligence",
+"Automated Internet",
+"Advanced Information",
+"Artificial Internet"
+],
+answer:"Artificial Intelligence"
+},
+
+{
+subject:"COA",
+difficulty:"Easy",
+question:"Which component performs arithmetic and logical operations?",
+options:["ALU","RAM","ROM","Cache"],
+answer:"ALU"
+},
+
+/* MODERATE */
+
+{
+subject:"Programming",
+difficulty:"Moderate",
+question:"Which keyword is used to inherit a class in Java?",
+options:["extends","implements","inherits","super"],
+answer:"extends"
+},
+
+{
+subject:"Programming",
+difficulty:"Moderate",
+question:"Which concept allows the same method name with different parameters?",
+options:[
+"Inheritance",
+"Polymorphism",
+"Encapsulation",
+"Abstraction"
+],
+answer:"Polymorphism"
+},
+
+{
+subject:"Programming",
+difficulty:"Moderate",
+question:"Which collection does not allow duplicate elements?",
+options:["List","Set","ArrayList","LinkedList"],
+answer:"Set"
+},
+
+{
+subject:"DSA",
+difficulty:"Moderate",
+question:"What is the average time complexity of binary search?",
+options:["O(n)","O(log n)","O(n²)","O(1)"],
+answer:"O(log n)"
+},
+
+{
+subject:"DSA",
+difficulty:"Moderate",
+question:"Which algorithm is commonly used for sorting?",
+options:["Merge Sort","Binary Search","DFS","BFS"],
+answer:"Merge Sort"
+},
+
+{
+subject:"DSA",
+difficulty:"Moderate",
+question:"Which traversal commonly uses a queue?",
+options:["BFS","DFS","Inorder","Postorder"],
+answer:"BFS"
+},
+
+{
+subject:"DBMS",
+difficulty:"Moderate",
+question:"Which key uniquely identifies a record?",
+options:[
+"Foreign Key",
+"Primary Key",
+"Candidate Key",
+"Composite Key"
+],
+answer:"Primary Key"
+},
+
+{
+subject:"DBMS",
+difficulty:"Moderate",
+question:"Which command removes a table?",
+options:["DELETE","DROP","REMOVE","CLEAR"],
+answer:"DROP"
+},
+
+{
+subject:"DBMS",
+difficulty:"Moderate",
+question:"Which operation combines rows from two tables?",
+options:["JOIN","SORT","GROUP","ORDER"],
+answer:"JOIN"
+},
+
+{
+subject:"Operating System",
+difficulty:"Moderate",
+question:"Which scheduling algorithm uses a time quantum?",
+options:["FCFS","Round Robin","Priority","SJF"],
+answer:"Round Robin"
+},
+
+{
+subject:"Operating System",
+difficulty:"Moderate",
+question:"Which technique divides memory into fixed-size blocks?",
+options:["Paging","Segmentation","Swapping","Spooling"],
+answer:"Paging"
+},
+
+{
+subject:"Computer Networks",
+difficulty:"Moderate",
+question:"Which protocol is used to browse websites?",
+options:["HTTP","FTP","SMTP","SSH"],
+answer:"HTTP"
+},
+
+{
+subject:"Computer Networks",
+difficulty:"Moderate",
+question:"Which protocol translates domain names into IP addresses?",
+options:["DNS","FTP","SMTP","HTTP"],
+answer:"DNS"
+},
+
+{
+subject:"Cyber Security",
+difficulty:"Moderate",
+question:"What is phishing?",
+options:[
+"A cyber attack using deceptive messages",
+"A programming language",
+"A network device",
+"A database technique"
+],
+answer:"A cyber attack using deceptive messages"
+},
+
+{
+subject:"Cyber Security",
+difficulty:"Moderate",
+question:"Which technique converts data into an unreadable format?",
+options:["Encryption","Compilation","Sorting","Compression"],
+answer:"Encryption"
+},
+
+{
+subject:"Web Development",
+difficulty:"Moderate",
+question:"Which language adds interactivity to web pages?",
+options:["JavaScript","HTML","CSS","SQL"],
+answer:"JavaScript"
+},
+
+{
+subject:"Web Development",
+difficulty:"Moderate",
+question:"Which CSS property changes text color?",
+options:["color","font","text-style","background"],
+answer:"color"
+},
+
+{
+subject:"Cloud Computing",
+difficulty:"Moderate",
+question:"What does SaaS stand for?",
+options:[
+"Software as a Service",
+"System as a Service",
+"Software and System",
+"Service as a Software"
+],
+answer:"Software as a Service"
+},
+
+{
+subject:"Cloud Computing",
+difficulty:"Moderate",
+question:"Which cloud model provides virtual machines and storage?",
+options:["IaaS","SaaS","PaaS","DaaS"],
+answer:"IaaS"
+},
+
+{
+subject:"AI / ML",
+difficulty:"Moderate",
+question:"Which type of learning uses labeled data?",
+options:[
+"Supervised Learning",
+"Unsupervised Learning",
+"Reinforcement Learning",
+"Random Learning"
+],
+answer:"Supervised Learning"
+},
+
+{
+subject:"AI / ML",
+difficulty:"Moderate",
+question:"Which is a machine learning algorithm?",
+options:["Linear Regression","HTML","CSS","FTP"],
+answer:"Linear Regression"
+},
+
+{
+subject:"COA",
+difficulty:"Moderate",
+question:"Which register stores the address of the next instruction?",
+options:[
+"Program Counter",
+"Accumulator",
+"Instruction Register",
+"Memory Register"
+],
+answer:"Program Counter"
+},
+
+/* HIGH */
+
+{
+subject:"Programming",
+difficulty:"High",
+question:"Which OOP principle hides internal implementation details?",
+options:[
+"Abstraction",
+"Inheritance",
+"Polymorphism",
+"Compilation"
+],
+answer:"Abstraction"
+},
+
+{
+subject:"Programming",
+difficulty:"High",
+question:"Which feature allows a class to implement multiple interfaces?",
+options:[
+"Multiple Interface Implementation",
+"Multiple Inheritance",
+"Method Overloading",
+"Constructor Chaining"
+],
+answer:"Multiple Interface Implementation"
+},
+
+{
+subject:"DSA",
+difficulty:"High",
+question:"What is the worst-case time complexity of Quick Sort?",
+options:["O(n)","O(log n)","O(n²)","O(1)"],
+answer:"O(n²)"
+},
+
+{
+subject:"DSA",
+difficulty:"High",
+question:"Which data structure is commonly used to implement a priority queue?",
+options:["Heap","Stack","Array","Linked List"],
+answer:"Heap"
+},
+
+{
+subject:"DBMS",
+difficulty:"High",
+question:"Which normal form removes transitive dependency?",
+options:["1NF","2NF","3NF","4NF"],
+answer:"3NF"
+},
+
+{
+subject:"DBMS",
+difficulty:"High",
+question:"Which property of transactions ensures all operations complete or none do?",
+options:[
+"Atomicity",
+"Consistency",
+"Isolation",
+"Durability"
+],
+answer:"Atomicity"
+},
+
+{
+subject:"Operating System",
+difficulty:"High",
+question:"Which condition can lead to deadlock?",
+options:[
+"Circular Wait",
+"Compilation",
+"Sorting",
+"Fast Execution"
+],
+answer:"Circular Wait"
+},
+
+{
+subject:"Operating System",
+difficulty:"High",
+question:"Which scheduling algorithm may cause starvation?",
+options:[
+"Priority Scheduling",
+"FCFS",
+"Round Robin",
+"FIFO"
+],
+answer:"Priority Scheduling"
+},
+
+{
+subject:"Computer Networks",
+difficulty:"High",
+question:"Which OSI layer is responsible for routing?",
+options:[
+"Network Layer",
+"Transport Layer",
+"Session Layer",
+"Application Layer"
+],
+answer:"Network Layer"
+},
+
+{
+subject:"Computer Networks",
+difficulty:"High",
+question:"Which protocol provides reliable transport?",
+options:["TCP","UDP","IP","ARP"],
+answer:"TCP"
+},
+
+{
+subject:"Cyber Security",
+difficulty:"High",
+question:"Which security principle ensures data is not modified without authorization?",
+options:[
+"Integrity",
+"Availability",
+"Confidentiality",
+"Authentication"
+],
+answer:"Integrity"
+},
+
+{
+subject:"Cyber Security",
+difficulty:"High",
+question:"What does multi-factor authentication provide?",
+options:[
+"Multiple verification factors",
+"Faster internet",
+"More storage",
+"Database backup"
+],
+answer:"Multiple verification factors"
+},
+
+{
+subject:"Web Development",
+difficulty:"High",
+question:"Which HTTP status code means Not Found?",
+options:["200","301","404","500"],
+answer:"404"
+},
+
+{
+subject:"Cloud Computing",
+difficulty:"High",
+question:"Which cloud model provides a platform for application development?",
+options:["PaaS","IaaS","SaaS","VPN"],
+answer:"PaaS"
+},
+
+{
+subject:"AI / ML",
+difficulty:"High",
+question:"Which learning method learns through rewards and penalties?",
+options:[
+"Reinforcement Learning",
+"Supervised Learning",
+"Unsupervised Learning",
+"Regression"
+],
+answer:"Reinforcement Learning"
+}
+
+];
+
+
+/* SHUFFLE */
+
+function shuffle(array){
+
+    for(let i=array.length-1;i>0;i--){
+
+        const j=Math.floor(Math.random()*(i+1));
+
+        [array[i],array[j]]=[array[j],array[i]];
+
+    }
+
+    return array;
+}
+
+
+/* FILTER QUESTIONS */
+
+const easyQuestions =
+    questionBank.filter(q => q.difficulty === "Easy");
+
+const moderateQuestions =
+    questionBank.filter(q => q.difficulty === "Moderate");
+
+const highQuestions =
+    questionBank.filter(q => q.difficulty === "High");
+
+
+/* EXACT DISTRIBUTION */
+
+let questions = [
+
+    ...shuffle([...easyQuestions]).slice(0,15),
+
+    ...shuffle([...moderateQuestions]).slice(0,20),
+
+    ...shuffle([...highQuestions]).slice(0,15)
+
+];
+
+
+/* RANDOM FINAL ORDER */
+
+questions = shuffle(questions);
+
+
+/* VARIABLES */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let selectedAnswer = null;
+
+
+/* LOAD QUESTION */
+
+function loadQuestion(){
+
+    selectedAnswer = null;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").innerText =
+        "Question " + (currentQuestion + 1) + " / 50";
+
+    document.getElementById("subjectLabel").innerText =
+        q.subject + " • " + q.difficulty;
+
+    document.getElementById("questionText").innerText =
+        q.question;
+
+    const optionsContainer =
+        document.getElementById("optionsContainer");
+
+    optionsContainer.innerHTML = "";
+
+    const shuffledOptions =
+        shuffle([...q.options]);
+
+    shuffledOptions.forEach(option => {
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+
+        div.innerText = option;
+
+        div.onclick = function(){
+
+            document.querySelectorAll(".option")
+                .forEach(item =>
+                    item.classList.remove("selected")
+                );
+
+            div.classList.add("selected");
+
+            selectedAnswer = option;
+
+        };
+
+        optionsContainer.appendChild(div);
+
+    });
+
+
+    if(currentQuestion === 49){
+
+        document.getElementById("nextBtn").style.display =
+            "none";
+
+        document.getElementById("submitBtn").style.display =
+            "block";
+
+    }else{
+
+        document.getElementById("nextBtn").style.display =
+            "block";
+
+        document.getElementById("submitBtn").style.display =
+            "none";
+
+    }
+
+}
+
+
+/* NEXT QUESTION */
+
+function nextQuestion(){
+
+    if(selectedAnswer === null){
+
+        alert("Please select an option first.");
+
+        return;
+
+    }
+
+    if(selectedAnswer === questions[currentQuestion].answer){
+
+        score++;
+
+    }
+
+    currentQuestion++;
+
+    loadQuestion();
+
+}
+
+
+/* SUBMIT */
+
+function submitAssessment(){
+
+    if(selectedAnswer === null){
+
+        alert("Please select an option first.");
+
+        return;
+
+    }
+
+    if(selectedAnswer === questions[currentQuestion].answer){
+
+        score++;
+
+    }
+
+    localStorage.setItem(
+        "mixedScore",
+        score
+    );
+
+    document.getElementById("questionCard").style.display =
+        "none";
+
+    document.getElementById("resultBox").style.display =
+        "block";
+
+    document.getElementById("finalScore").innerText =
+        score + " / 50";
+
+}
+
+
+/* START */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

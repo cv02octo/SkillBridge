@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - SkillBridge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="SkillBridge Logo" class="brand-logo-img">
+            <span>SkillBridge</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="subject.html">Assessments</a>
+            <a href="roadmap.html">Roadmaps</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="register.html" class="nav-btn-primary">Register Free</a>
+        </div>
+    </nav>
+
+    <!-- AUTH PAGE -->
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="nav-brand" style="justify-content: center; margin-bottom: 16px;">
+                    <div class="nav-logo-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span>SkillBridge</span>
+                </a>
+                <h1>Welcome Back</h1>
+                <p>Login to track your learning progress and access assessments.</p>
+            </div>
+
+            <form action="dashboard.html" method="GET">
+                <div class="form-group">
+                    <label for="email"><i class="fa-regular fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Sign In <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="register.html" style="font-weight: 700;">Create Free Account</a></p>
+                <p style="margin-top: 10px;"><a href="index.html" style="color: var(--text-muted);"><i class="fa-solid fa-house"></i> Return to Homepage</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
